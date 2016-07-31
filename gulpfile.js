@@ -6,6 +6,7 @@ var header = require('gulp-header');
 var cleanCSS = require('gulp-clean-css');
 var rename = require("gulp-rename");
 var uglify = require('gulp-uglify');
+var bower = require('gulp-bower');
 var pkg = require('./package.json');
 
 // Set the banner content
@@ -18,7 +19,7 @@ var banner = ['/*!\n',
 ].join('');
 
 // Default task
-gulp.task('default', ['less', 'minify-css', 'minify-js', 'copy']);
+gulp.task('default', ['less', 'minify-css', 'minify-js', 'bower', 'copy']);
 
 // Less task to compile the less files and add the banner
 gulp.task('less', function() {
@@ -29,6 +30,11 @@ gulp.task('less', function() {
         .pipe(browserSync.reload({
             stream: true
         }))
+});
+
+// update bower dependencies
+gulp.task('bower', function() {
+    return bower();
 });
 
 // Minify CSS
@@ -92,7 +98,7 @@ gulp.task('browserSync', function() {
 })
 
 // Watch Task that compiles LESS and watches for HTML or JS changes and reloads with browserSync
-gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js'], function() {
+gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js', 'bower'], function() {
     gulp.watch('less/*.less', ['less']);
     gulp.watch('css/*.css', ['minify-css']);
     gulp.watch('js/*.js', ['minify-js']);
