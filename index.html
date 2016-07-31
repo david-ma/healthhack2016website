@@ -150,6 +150,10 @@ section.bg-light-gray .expando {
 	width: 100%;
 }
 
+#tumblr_link {
+	text-align: center;
+}
+
 </style>
 
 </head>
@@ -201,7 +205,7 @@ section.bg-light-gray .expando {
             <div class="intro-text">
                 <div class="intro-heading">Health Hack 2016</div>
                 <div class="intro-lead-in">14-16th of October 2016</div>
-                <div class="intro-lead-in">A <a href="http://au.okfn.org/#hh">Open Knowledge</a> hackathon on healthcare and medical research</div>
+                <div class="intro-lead-in">An <a href="http://au.okfn.org/#hh">Open Knowledge</a> hackathon on healthcare and medical research</div>
                 <a href="#mission" class="page-scroll btn btn-xl">Tell Me More</a>
             </div>
         </div>
@@ -235,11 +239,11 @@ section.bg-light-gray .expando {
         <div class="container">
             <div class="row">
                 <div class="col-lg-offset-3 col-lg-8 collapsable">
-                    <h2 class="section-heading text-right"">Blog</h2>
-                    <p class="section-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    
-                    <p class="section-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
-
+                    <h2 class="section-heading text-right" style="margin-bottom: 0px;">Blog</h2>
+                    <h3 id="tumblr_title" style="margin-top: 0px; padding-right: 0px;" class="text-right col-lg-offset-4 col-lg-8"></h3>
+                    <div id="tumblr">
+                    </div>
+                    <h3 id="tumblr_link"><a href="http://blog.healthhack.com.au/">See more blog posts</a></h3>
                 </div>
             </div>
             <div class="row text-center"></div>
@@ -319,13 +323,32 @@ section.bg-light-gray .expando {
     </section>
  -->
 
-    <!-- Sites Section -->
-    <section id="sites" class="text-center bg-light-gray">
+    <!-- Sites Section bg-light-gray -->
+    <section id="sites" class="text-center">
         <div class="container">
             <div class="row">
                 <div class="col-lg-offset-1 col-lg-10">
                     <h2 class="section-heading">Sites</h2>
-<div id="event-regions" class="row event-regions"><div class="col-sm-3"><a href="brisbane.html" class="event-region"><img src="/img/locations/brisbane.png" class="event-region-image"><span class="event-region-shadow"></span><span class="event-region-text"><h2 class="font-light">Brisbane</h2><p>River City Labs</p><div class="btn-link">Learn More</div></span></a></div><div class="col-sm-3"><a href="sydney.html" class="event-region"><img src="/img/locations/sydney.png" class="event-region-image"><span class="event-region-shadow"></span><span class="event-region-text"><h2 class="font-light">Sydney</h2><p>The Kinghorn Cancer Centre</p><div class="btn-link">Learn More</div></span></a></div><div class="col-sm-3"><a href="sydney.html" class="event-region"><img src="/img/locations/canberra.jpeg" class="event-region-image"><span class="event-region-shadow"></span><span class="event-region-text"><h2 class="font-light">Canberra</h2><p>TBA</p><div class="btn-link">Learn More</div></span></a></div><div class="col-sm-3"><a href="perth.html" class="event-region"><img src="/img/locations/perth.png" class="event-region-image"><span class="event-region-shadow"></span><span class="event-region-text"><h2 class="font-light">Perth</h2><p>Curtin University</p><div class="btn-link">Learn More</div></span></a></div><div class="col-sm-3"><a href="melbourne.html" class="event-region"><img src="/img/locations/melbourne.png" class="event-region-image"><span class="event-region-shadow"></span><span class="event-region-text"><h2 class="font-light">Melbourne</h2><p>ThoughtWorks Melbourne</p><div class="btn-link">Learn More</div></span></a></div></div>
+
+<div id="event-regions" class="row event-regions">
+<div class="col-md-4"><a href="brisbane.html" class="event-region"><img src="/img/locations/brisbane.png" class="event-region-image"><span class="event-region-shadow"></span><span class="event-region-text"><h2 class="font-light">Brisbane</h2><p>TBA</p><div class="btn-link">Learn More</div></span></a></div>
+
+
+<div class="col-md-4"><a href="sydney.html" class="event-region"><img src="/img/locations/sydney.png" class="event-region-image">
+<span class="event-region-shadow"></span>
+<span class="event-region-text"><h2 class="font-light">Sydney</h2><p>The Kinghorn Cancer Centre</p><div class="btn-link">Learn More</div></span></a></div>
+
+
+<div class="col-md-4"><a href="sydney.html" class="event-region"><img src="/img/locations/canberra.jpeg" class="event-region-image"><span class="event-region-shadow"></span><span class="event-region-text"><h2 class="font-light">Canberra</h2><p>TBA</p><div class="btn-link">Learn More</div></span></a></div>
+</div>
+
+<br>
+
+<div class="row event-regions">
+<div class="col-md-offset-2 col-md-4"><a href="perth.html" class="event-region"><img src="/img/locations/perth.png" class="event-region-image"><span class="event-region-shadow"></span><span class="event-region-text"><h2 class="font-light">Perth</h2><p>TBA</p><div class="btn-link">Learn More</div></span></a></div>
+
+<div class="col-md-4"><a href="melbourne.html" class="event-region"><img src="/img/locations/melbourne.png" class="event-region-image"><span class="event-region-shadow"></span><span class="event-region-text"><h2 class="font-light">Melbourne</h2><p>TBA</p><div class="btn-link">Learn More</div></span></a></div></div>
+
                 </div>
             </div>
             <div class="row text-center"></div>
@@ -574,10 +597,17 @@ section.bg-light-gray .expando {
     <!-- Theme JavaScript -->
     <script src="/js/agency.min.js"></script>
     <script src="/js/d3.v4.min.js"></script>
+
+
+<!-- Tumblr Stuff: -->
+<script type="text/javascript" src="http://blog.healthhack.com.au/api/read/json"></script>
+<script type="text/javascript">
+		document.getElementById('tumblr_title').innerHTML += tumblr_api_read.posts[0]['regular-title'];
+		document.getElementById('tumblr').innerHTML += tumblr_api_read.posts[0]['regular-body'];
+</script>
+
+<!-- Collapsable section stuff: -->
 <script>
-
-var socket = io.connect();
-
 d3.selectAll(".collapsable").each(function(d){
 	var that = this;
 
@@ -590,6 +620,23 @@ d3.selectAll(".collapsable").each(function(d){
 		}).append("p").append("i").classed("fa fa-lg", true);
 
 })
+// 
+// fetch('thing.json')
+// .then( (resp) => {
+// 	/* do stuff here */
+// 	console.log(this);
+// })
+</script>
+
+
+
+
+
+<!-- Stuff to write emails to a database -->
+<script>
+
+var socket = io.connect();
+
 
 d3.select("#contact_button").on("click", function(d){
 	var data = {
