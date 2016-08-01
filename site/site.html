@@ -10,143 +10,168 @@
     <script src="/socket.io/socket.io.js"></script>
 
     <link rel="import" href="/bower_components/google-map/google-map.html">
+    <link rel="import" href="/bower_components/marked-element/marked-element.html">
     <link rel="import" href="../sponsors-nested-list.html">
+
     <!-- Theme CSS -->
     <link href="/css/healthhack.css" rel="stylesheet">
 <dom-module id="healthhack-site">
     <template>
     <style>
         header {
-  background-image: url(/img/HH_HomeImage_1x.jpg);
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  text-align: center;
-  color: #fff;
-  height: 300px;
-}
+            background-image: url(/img/HH_HomeImage_1x.jpg);
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-position: center center;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;
+            text-align: center;
+            color: #fff;
+            height: 300px;
+        }
 
-header @media(width < 600px) {
-    height: 100px;
-}
+        header @media(width < 600px) {
+            height: 100px;
+        }
 
+        .linkhider {
+            :before {
+                content: "";
+                height: 100px;
+                width: 100%;
+                color: green;
+            }
+        }
 
-.linkhider {
-    :before {
-        content: "";
-        height: 100px;
-        width: 100%;
-        color: green;
-    }
-}
+        .collapsed {
+            height: 180px;
+            overflow: hidden;
+        }
 
-.collapsed {
-    height: 180px;
-    overflow: hidden;
-}
+        .collapsed .expando {
+            position: absolute;
+        }
 
-.collapsed .expando {
-    position: absolute;
-}
-.collapsed .expando i:before {
-    content: "\f078"
-}
-.expando i:before {
-    content: "\f077"
-}
-.expando {
-  height: 40px;
-  width: 100%;
-  position: initial;
-  top: 140px;
-  left: 0;
-  display: block;
-  cursor: pointer;
-  background: linear-gradient(to bottom,rgba(255,255,255,0),#fff);
-}
-section.bg-light-gray .expando {
-  background: linear-gradient(to bottom,rgba(255,255,255,0),#eee);
-}
+        .collapsed .expando i:before {
+            content: "\f078"
+        }
 
-.expando p {
-    color: rgb(68, 120, 172);
-    margin: 10px auto auto;
-    width: 1%;
-}
+        .expando i:before {
+            content: "\f077"
+        }
 
+        .expando {
+            height: 40px;
+            width: 100%;
+            position: initial;
+            top: 140px;
+            left: 0;
+            display: block;
+            cursor: pointer;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff);
+        }
 
-#hh_logo {
-    background: white;
-    padding: 5px 15px;
-}
-#mainNav.affix #hh_logo {
-    margin-top: -10px;
-    height: 43px;
-}
+        section.bg-light-gray .expando {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #eee);
+        }
 
-.event-description {
-  text-align: justify;
-  width: 100%;
-  margin: 30px auto;
-  font-size: larger;
-  font-weight: 300; }
-.event-regions {
-  text-align: center;
-  color: white;
-  position: relative; }
-  .event-regions .event-region {
-    color: #fff;
-    cursor: pointer;
-    position: relative;
-    display: block; }
-  .event-regions .event-region-shadow {
-    position: absolute;
-    background-color: #0A0A0A;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    opacity: 0.7; }
-  .event-regions .event-region:hover {
-    font-style: normal;
-    text-decoration: none; }
-    .event-regions .event-region:hover .event-region-shadow {
-      opacity: 0.9; }
-    .event-regions .event-region:hover .event-region-text {
-      text-decoration: none; }
-  .event-regions .event-region-shadow:hover {
-    opacity: 0.9; }
-  .event-regions .event-region-image {
-    width: 100%;
-    height: auto; }
-  .event-regions .event-region-text {
-    position: absolute;
-    top: 50%;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin-top: -75px;
-    color: #fff; }
+        .expando p {
+            color: rgb(68, 120, 172);
+            margin: 10px auto auto;
+            width: 1%;
+        }
 
+        #hh_logo {
+            background: white;
+            padding: 5px 15px;
+        }
 
+        #mainNav.affix #hh_logo {
+            margin-top: -10px;
+            height: 43px;
+        }
 
-.form-control, .form-group input {
-    background-color: rgba(8, 179, 166, 0.42);
-    color: white;
-}
+        .event-description {
+            text-align: justify;
+            width: 100%;
+            margin: 30px auto;
+            font-size: larger;
+            font-weight: 300;
+        }
 
-.modal-dialog {
-    margin: 0;
-    width: 100%;
-}
-    google-map {
-        height:300px;
-    }
-</style>
+        .event-regions {
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .event-regions .event-region {
+            color: #fff;
+            cursor: pointer;
+            position: relative;
+            display: block;
+        }
+
+        .event-regions .event-region-shadow {
+            position: absolute;
+            background-color: #0A0A0A;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            opacity: 0.7;
+        }
+
+        .event-regions .event-region:hover {
+            font-style: normal;
+            text-decoration: none;
+        }
+
+        .event-regions .event-region:hover .event-region-shadow {
+            opacity: 0.9;
+        }
+
+        .event-regions .event-region:hover .event-region-text {
+            text-decoration: none;
+        }
+
+        .event-regions .event-region-shadow:hover {
+            opacity: 0.9;
+        }
+
+        .event-regions .event-region-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .event-regions .event-region-text {
+            position: absolute;
+            top: 50%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin-top: -75px;
+            color: #fff;
+        }
+
+        .form-control,
+        .form-group input {
+            background-color: rgba(8, 179, 166, 0.42);
+            color: white;
+        }
+
+        .modal-dialog {
+            margin: 0;
+            width: 100%;
+        }
+
+        google-map {
+            height: 300px;
+        }
+        </style>
+
         <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -164,19 +189,19 @@ section.bg-light-gray .expando {
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#mission">Mission</a>
+                        <a class="page-scroll" href="/index.html#mission">Mission</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#blog">Blog</a>
+                        <a class="page-scroll" href="/index.html#blog">Blog</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#problems">Problems</a>
+                        <a class="page-scroll" href="/index.html#problems">Problems</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#sites">Sites</a>
+                        <a class="page-scroll" href="/index.html#sites">Sites</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#sponsors">Sponsors</a>
+                        <a class="page-scroll" href="/index.html#sponsors">Sponsors</a>
                     </li>
                 </ul>
             </div>
@@ -184,9 +209,9 @@ section.bg-light-gray .expando {
         </div>
         <!-- /.container-fluid -->
     </nav>
-    <header>
+    <header style="padding-top:100px">
         <div class="container" style="display:flex;flex-direction:column;justify-content: bottom">
-            <h1>{{name}}</h1>
+            <h1>{{site.name}}</h1>
             <h2>{{site.street_address}}</h2>
         </div>
     </header>
@@ -194,12 +219,23 @@ section.bg-light-gray .expando {
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    <h1>A note from the Sponsor</h1>
-                    <p>{{general.sponsor_spiel}}</p>
+                    <template is="dom-if" if="{{site.sponsor_spiel}}">
+                        <h1>A note from the Sponsor</h1>
+                        <marked-element markdown="{{sponsorSpiel}}">
+                            <div class="markdown-html">
+                            </div>
+                        </marked-element>
+                    </template>
                     <h1>What to Expect</h1>
-                    <p>{{general.expect_spiel}}</p>
+                    <marked-element markdown="{{expectSpiel}}">
+                        <div class="markdown-html">
+                        </div>
+                    </marked-element>
                     <h1>How it Works</h1>
-                    <p>{{general.how_it_works_spiel}}</p>
+                    <marked-element markdown="{{howItWorksSpiel}}">
+                        <div class="markdown-html">
+                        </div>
+                    </marked-element>
                     <h1>Frequently Asked Questions</h1>
                     <hh-faq faqs="{{site.faqs}}"></hh-faq>
                 </div>
@@ -227,10 +263,10 @@ section.bg-light-gray .expando {
             </div>
         </div>
     </section>
-    <section style="display: flex;flex-direction:column; align-items: center;justify-content: center">
+<!--     <section style="display: flex;flex-direction:column; align-items: center;justify-content: center">
         <h1 style="text-align: center">Sponsors for the {{name}} event</h1>
         <sponsors-nested-list></sponsors-nested-list>
-    </section>
+    </section> -->
     <!-- Contact Section -->
     <section id="contact">
         <div class="container">
@@ -321,6 +357,33 @@ section.bg-light-gray .expando {
                     console.log(sites);
                     this.general = sites.general;
                     this.site = sites[this.name];
+                    fetch(this.general.how_it_works_spiel)
+                    .then( (resp) => {
+                        return resp.text();
+                    })
+                    .then( function(marked) {
+                        console.log(marked);
+                        this.howItWorksSpiel = marked;
+                    }.bind(this))
+                    if(this.site.sponsorSpiel) {
+                        fetch(this.site.sponsorSpiel)
+                        .then( (resp) => {
+                            return resp.text();
+                        })
+                        .then( function(marked) {
+                            console.log(marked);
+                            this.sponsorSpiel = marked;
+                        }.bind(this))    
+                    }
+                    
+                    fetch(this.general.expect_spiel)
+                    .then( (resp) => {
+                        return resp.text();
+                    })
+                    .then( function(marked) {
+                        console.log(marked);
+                        this.expectSpiel = marked;
+                    }.bind(this))
                 }.bind(this))
             }
         })

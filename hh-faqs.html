@@ -1,0 +1,35 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+
+<dom-module id="hh-faqs">
+	<template>
+		<template is="dom-repeat" items="{{questions_arr}}">
+			<marked-element markdown="{{item.content}}">
+				<div class="markdown-html">
+				</div>
+			</marked-element>
+		</template>
+	</template>
+	<script>
+		Polymer({
+			is: "hh-faqs",
+			properties: {
+				faq_url: {
+					type: String,
+					reflectToAttribute: true,
+					notify: true
+				}
+			},
+			attached: function() {
+				Promise.all(this.faqs.map(function(question) {
+					fetch(question)
+					.then( (resp) => {
+						return {content: resp.json(), type: question.type};
+					})
+				}))
+				.then(function(questions_arr) {
+					this.questions_arr = questions_arr;
+				}.bind(this))
+			}
+		})
+	</script>
+</dom-module>
