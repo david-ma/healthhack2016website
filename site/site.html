@@ -11,7 +11,7 @@
 
     <link rel="import" href="/bower_components/google-map/google-map.html">
     <link rel="import" href="/bower_components/marked-element/marked-element.html">
-    <link rel="import" href="../sponsors-nested-list.html">
+    <link rel="import" href="/sponsors-nested-list.html">
 
     <!-- Theme CSS -->
     <link href="/css/healthhack.css" rel="stylesheet">
@@ -93,69 +93,6 @@
             height: 43px;
         }
 
-        .event-description {
-            text-align: justify;
-            width: 100%;
-            margin: 30px auto;
-            font-size: larger;
-            font-weight: 300;
-        }
-
-        .event-regions {
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-
-        .event-regions .event-region {
-            color: #fff;
-            cursor: pointer;
-            position: relative;
-            display: block;
-        }
-
-        .event-regions .event-region-shadow {
-            position: absolute;
-            background-color: #0A0A0A;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            opacity: 0.7;
-        }
-
-        .event-regions .event-region:hover {
-            font-style: normal;
-            text-decoration: none;
-        }
-
-        .event-regions .event-region:hover .event-region-shadow {
-            opacity: 0.9;
-        }
-
-        .event-regions .event-region:hover .event-region-text {
-            text-decoration: none;
-        }
-
-        .event-regions .event-region-shadow:hover {
-            opacity: 0.9;
-        }
-
-        .event-regions .event-region-image {
-            width: 100%;
-            height: auto;
-        }
-
-        .event-regions .event-region-text {
-            position: absolute;
-            top: 50%;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin-top: -75px;
-            color: #fff;
-        }
-
         .form-control,
         .form-group input {
             background-color: rgba(8, 179, 166, 0.42);
@@ -169,6 +106,11 @@
 
         google-map {
             height: 300px;
+        }
+        .sidebar-descriptor {
+            font-size: 1.2em;
+            line-height: 1.6;
+            font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
         </style>
 
@@ -236,13 +178,21 @@
                         <div class="markdown-html">
                         </div>
                     </marked-element>
-                    <h1>Frequently Asked Questions</h1>
-                    <hh-faq faqs="{{site.faqs}}"></hh-faq>
+                    <h1>Frequently Asked Questions - Problem Owners</h1>
+                    <marked-element markdown="{{problemOwners}}">
+                        <div class="markdown-html">
+                        </div>
+                    </marked-element>
+                    <h1>Frequently Asked Questions - Participants</h1>
+                    <marked-element markdown="{{participants}}">
+                        <div class="markdown-html">
+                        </div>
+                    </marked-element>
                 </div>
                 <div class="col-md-3">
                     <div class="flex" style="padding:10px;background-color: #eee">
                         <h2>When</h2>
-                        <p>{{general.date}}</p>
+                        <p class="sidebar-descriptor">{{general.date}}</p>
                         <google-map zoom="14"
                         latitude="{{site.where_coords.0}}"
                         longitude="{{site.where_coords.1}}"
@@ -252,12 +202,12 @@
                             longitude="{{site.where_coords.1}}"></google-map-marker>
                         </google-map>
                         <h2>Where</h2>
-                        <p>{{name}}</p>
-                        <p>{{site.readable_location}}</p>
-                        <p>{{site.street_address}}</p>
-                        <p>{{site.location_coarse}}</p>
+                        <p class="sidebar-descriptor">{{site.name}}</p>
+                        <p class="sidebar-descriptor">{{site.readable_location}}</p>
+                        <p class="sidebar-descriptor">{{site.street_address}}</p>
+                        <p class="sidebar-descriptor">{{site.location_coarse}}</p>
                         <h2>Contact</h2>
-                        <a target="_blank" href="mailto:{{name}}@healthhack.com.au">{{name}}@healthhack.com.au</a>
+                        <a class="sidebar-descriptor" target="_blank" href="mailto:{{name}}@healthhack.com.au">{{name}}@healthhack.com.au</a>
                     </div>
                 </div>
             </div>
@@ -354,7 +304,6 @@
                     return resp.json();
                 })
                 .then(function(sites) {
-                    console.log(sites);
                     this.general = sites.general;
                     this.site = sites[this.name];
                     fetch(this.general.how_it_works_spiel)
@@ -362,7 +311,6 @@
                         return resp.text();
                     })
                     .then( function(marked) {
-                        console.log(marked);
                         this.howItWorksSpiel = marked;
                     }.bind(this))
                     if(this.site.sponsorSpiel) {
@@ -371,7 +319,6 @@
                             return resp.text();
                         })
                         .then( function(marked) {
-                            console.log(marked);
                             this.sponsorSpiel = marked;
                         }.bind(this))    
                     }
@@ -381,8 +328,21 @@
                         return resp.text();
                     })
                     .then( function(marked) {
-                        console.log(marked);
                         this.expectSpiel = marked;
+                    }.bind(this))
+                    fetch(this.general.problem_owners)
+                    .then( (resp) => {
+                        return resp.text();
+                    })
+                    .then( function(marked) {
+                        this.problemOwners = marked;
+                    }.bind(this))
+                    fetch(this.general.participants)
+                    .then( (resp) => {
+                        return resp.text();
+                    })
+                    .then( function(marked) {
+                        this.participants = marked;
                     }.bind(this))
                 }.bind(this))
             }

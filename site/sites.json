@@ -83,8 +83,10 @@
             }
     },
     "general": {
-        "date": "14 - 16 October",
+        "date": "14 - 16 October 2016",
         "expect_spiel": "/data/expectSpiel.md",
-        "how_it_works_spiel": "/data/howItWorksSpiel.md"
+        "how_it_works_spiel": "/data/howItWorksSpiel.md",
+        "participants": "/data/participants.md",
+        "problem_owners": "/data/problemOwners.md"
     }
 }
