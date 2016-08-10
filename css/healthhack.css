@@ -34,7 +34,7 @@ a:hover,
 a:focus,
 a:active,
 a.active {
-  color: #07988d;
+  color: #0becdb;
 }
 h1,
 h2,
@@ -184,7 +184,7 @@ fieldset[disabled] .btn-xl.active {
 }
 .navbar-custom .nav li a:hover,
 .navbar-custom .nav li a:focus {
-  color: #08b3a6;
+  color: #0becdb;
   outline: none;
 }
 .navbar-custom .navbar-nav > .active > a {
@@ -645,7 +645,7 @@ ul.social-buttons li a {
 ul.social-buttons li a:hover,
 ul.social-buttons li a:focus,
 ul.social-buttons li a:active {
-  background-color: #08b3a6;
+  background-color: #0becdb;
 }
 .btn:focus,
 .btn:active,
