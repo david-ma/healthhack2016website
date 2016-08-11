@@ -1,9 +1,9 @@
 {
     "brisbane" : {
         "name": "Brisbane",
-        "readable_location": "TBA",
-        "location_coarse":  "TBA",
-        "street_address": "TBA",
+        "readable_location": "River City Labs",
+        "location_coarse":  "Fortitude Valley 4006",
+        "street_address": "2/282 Wickham St",
         "where_coords" : [-27.4565241, 153.0344888],
         "contact" : ["Mitchell Stanton-Cook", "Mike Imelfort"],
         "image-sm" : "images/locations/brisbane.png",
@@ -52,9 +52,9 @@
         },
     "melbourne" : {
         "name": "Melbourne",
-        "readable_location": "TBA",
-        "location_coarse":  "TBA",
-        "street_address": "TBA",
+        "readable_location": "Thoughtworks Melbourne",
+        "location_coarse":  "Melbourne 3000",
+        "street_address": "303 Collins St",
         "where_coords" : [-37.816685, 144.963967],
         "contact" : ["David Ma", "Frederick Michna", "Nicholas Roberts"],
         "image-sm" : "images/locations/melbourne.png",
@@ -84,9 +84,9 @@
     },
     "general": {
         "date": "14 - 16 October 2016",
-        "expect_spiel": "/data/expectSpiel.md",
-        "how_it_works_spiel": "/data/howItWorksSpiel.md",
-        "participants": "/data/participants.md",
-        "problem_owners": "/data/problemOwners.md"
+        "expectSpiel": "/data/expectSpiel.html",
+        "howItWorksSpiel": "/data/howItWorksSpiel.html",
+        "participants": "/data/participants.html",
+        "problemOwners": "/data/problemOwners.html"
     }
 }

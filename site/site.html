@@ -161,33 +161,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    <template is="dom-if" if="{{site.sponsor_spiel}}">
-                        <h1>A note from the Sponsor</h1>
-                        <marked-element markdown="{{sponsorSpiel}}">
-                            <div class="markdown-html">
-                            </div>
-                        </marked-element>
+                    <template is="dom-if" if="{{site.sponsorSpiel}}">
+                    <h1>A note from the Sponsor</h1>
                     </template>
+                    <div id="sponsorSpiel"></div>
                     <h2>What to Expect</h2>
-                    <marked-element markdown="{{expectSpiel}}">
-                        <div class="markdown-html">
-                        </div>
-                    </marked-element>
+                    <div id="whatToExpectSpiel"></div>
                     <h2>How it Works</h2>
-                    <marked-element markdown="{{howItWorksSpiel}}">
-                        <div class="markdown-html">
-                        </div>
-                    </marked-element>
+                    <div id="howItWorksSpiel"></div>
                     <h2>Frequently Asked Questions - Problem Owners</h2>
-                    <marked-element markdown="{{problemOwners}}">
-                        <div class="markdown-html">
-                        </div>
-                    </marked-element>
+                    <div id="problemOwners"></div>
                     <h2>Frequently Asked Questions - Participants</h2>
-                    <marked-element markdown="{{participants}}">
-                        <div class="markdown-html">
-                        </div>
-                    </marked-element>
+                    <div id="participants"></div>
                 </div>
                 <div class="col-md-3">
                     <div class="flex" style="padding:10px;background-color: #eee">
@@ -306,44 +291,30 @@
                 .then(function(sites) {
                     this.general = sites.general;
                     this.site = sites[this.name];
-                    fetch(this.general.how_it_works_spiel)
-                    .then( (resp) => {
-                        return resp.text();
-                    })
-                    .then( function(marked) {
-                        this.howItWorksSpiel = marked;
-                    }.bind(this))
-                    if(this.site.sponsorSpiel) {
-                        fetch(this.site.sponsorSpiel)
-                        .then( (resp) => {
-                            return resp.text();
-                        })
-                        .then( function(marked) {
-                            this.sponsorSpiel = marked;
-                        }.bind(this))    
+                    var sections = {
+                        "sponsorSpiel": this.$.sponsorSpiel,
+                        "whatToExpectSpiel": this.$.whatToExpectSpiel,
+                        "howItWorksSpiel": this.$.howItWorksSpiel,
+                        "problemOwners": this.$.problemOwners,
+                        "participants": this.$.participants
                     }
-                    
-                    fetch(this.general.expect_spiel)
-                    .then( (resp) => {
-                        return resp.text();
+                    Object.keys(sections).map( (key) => {
+                        var q_string;
+                        if(key == 'sponsorSpiel') {
+                            if(Object.keys(this.site).indexOf('sponsorSpiel') == -1) {
+                                return;
+                            }
+                            q_string = this.site.sponsorSpiel;
+                        }
+                        else {
+                            q_string = `/data/${key}.html`
+                        }
+                        fetch(q_string)
+                        .then( (resp) => { return resp.text(); })
+                        .then(function(html) {
+                            sections[key].innerHTML = html;
+                        }.bind(this))
                     })
-                    .then( function(marked) {
-                        this.expectSpiel = marked;
-                    }.bind(this))
-                    fetch(this.general.problem_owners)
-                    .then( (resp) => {
-                        return resp.text();
-                    })
-                    .then( function(marked) {
-                        this.problemOwners = marked;
-                    }.bind(this))
-                    fetch(this.general.participants)
-                    .then( (resp) => {
-                        return resp.text();
-                    })
-                    .then( function(marked) {
-                        this.participants = marked;
-                    }.bind(this))
                 }.bind(this))
             }
         })
