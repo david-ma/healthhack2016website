@@ -30,7 +30,7 @@
         "childcare": false,
         "faqs" : {
             "site" : [],
-            "participant" : [],
+            "participant" : [],'='
             "owner" : [] 
             }
         },
