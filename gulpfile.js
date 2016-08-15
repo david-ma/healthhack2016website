@@ -62,7 +62,7 @@ gulp.task('minify-js', function() {
 
 // Copy Bootstrap core files from node_modules to vendor directory
 gulp.task('bootstrap', function() {
-    return gulp.src(['node_modules/bootstrap/dist/**/*', '!**/npm.js', '!**/bootstrap-theme.*', '!**/*.map'])
+    return gulp.src(['node_modules/bootstrap/dist/**/*', '!**/npm.js', '!**/bootstrap-theme.*'])
         .pipe(gulp.dest('vendor/bootstrap'))
 })
 
@@ -98,7 +98,7 @@ gulp.task('browserSync', function() {
 })
 
 // Watch Task that compiles LESS and watches for HTML or JS changes and reloads with browserSync
-gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js', 'bower'], function() {
+gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js', 'copy', 'bower'], function() {
     gulp.watch('less/*.less', ['less']);
     gulp.watch('css/*.css', ['minify-css']);
     gulp.watch('js/*.js', ['minify-js']);

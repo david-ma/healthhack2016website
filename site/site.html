@@ -9,6 +9,13 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <script src="/socket.io/socket.io.js"></script>
 
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="/js/jqBootstrapValidation.js"></script>
+    <script src="/js/contact_me.js"></script>
+
     <link rel="import" href="/bower_components/google-map/google-map.html">
     <link rel="import" href="/bower_components/marked-element/marked-element.html">
     <link rel="import" href="/sponsors-nested-list.html">
@@ -18,6 +25,13 @@
 <dom-module id="healthhack-site">
     <template>
     <style>
+        .navbar-custom .nav li a {
+          font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+          text-transform: uppercase;
+          font-weight: 400;
+          letter-spacing: 1px;
+          color: white;
+        }
         header {
             background-image: url(/img/HH_HomeImage_1x.jpg);
             background-repeat: no-repeat;
@@ -294,7 +308,7 @@
             },
             attached: function() {
                 fetch('/site/sites.json')
-                .then( (resp) => {
+                .then( function(resp) {
                     return resp.json();
                 })
                 .then(function(sites) {
@@ -307,7 +321,7 @@
                         "problemOwners": this.$.problemOwners,
                         "participants": this.$.participants
                     }
-                    Object.keys(sections).map( (key) => {
+                    Object.keys(sections).map( function(key) {
                         var q_string;
                         if(key == 'sponsorSpiel') {
                             if(Object.keys(this.site).indexOf('sponsorSpiel') == -1) {
@@ -319,12 +333,17 @@
                             q_string = `/data/${key}.html`
                         }
                         fetch(q_string)
-                        .then( (resp) => { return resp.text(); })
+                        .then( function(resp) { return resp.text(); })
                         .then(function(html) {
                             sections[key].innerHTML = html;
                         }.bind(this))
-                    })
+                    }.bind(this))
                 }.bind(this))
+                $('#mainNav').affix({
+                    offset: {
+                        top: 100
+                    }
+                })
             }
         })
     </script>
