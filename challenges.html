@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="/js/conditional-dependencies.js"></script>
+		<link async rel="import" href="hh-challenges.html">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+		<link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+	<style>
+			.navbar-custom .nav li a {
+				font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+				text-transform: uppercase;
+				font-weight: 400;
+				letter-spacing: 1px;
+				color: white;
+			}
+			header {
+					background-image: url(/img/HH_HomeImage_1x.jpg);
+					background-repeat: no-repeat;
+					background-attachment: scroll;
+					background-position: center center;
+					-webkit-background-size: cover;
+					-moz-background-size: cover;
+					background-size: cover;
+					-o-background-size: cover;
+					text-align: center;
+					color: #fff;
+					height: 300px;
+			}
+
+			header @media(width < 600px) {
+					height: 100px;
+			}
+
+			.linkhider {
+					:before {
+							content: "";
+							height: 100px;
+							width: 100%;
+							color: green;
+					}
+			}
+
+			.collapsed {
+					height: 180px;
+					overflow: hidden;
+			}
+
+			.collapsed .expando {
+					position: absolute;
+			}
+
+			.collapsed .expando i:before {
+					content: "\f078"
+			}
+
+			.expando i:before {
+					content: "\f077"
+			}
+
+			.expando {
+					height: 40px;
+					width: 100%;
+					position: initial;
+					top: 140px;
+					left: 0;
+					display: block;
+					cursor: pointer;
+					background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff);
+			}
+
+			section.bg-light-gray .expando {
+					background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #eee);
+			}
+
+			.expando p {
+					color: rgb(68, 120, 172);
+					margin: 10px auto auto;
+					width: 1%;
+			}
+
+			#hh_logo {
+					background: white;
+					padding: 5px 15px;
+			}
+
+			#mainNav.affix #hh_logo {
+					margin-top: -10px;
+					height: 43px;
+			}
+
+			.form-control,
+			.form-group input {
+					background-color: rgba(8, 179, 166, 0.42);
+					color: white;
+			}
+
+			.modal-dialog {
+					margin: 0;
+					width: 100%;
+			}
+
+			google-map {
+					height: 300px;
+			}
+			.sidebar-descriptor {
+					font-size: 1.2em;
+					line-height: 1.6;
+					font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			}
+			</style>
+
+			<nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+			<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header page-scroll">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+									<span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+							</button>
+							<a class="navbar-brand page-scroll" href="/index.html#page-top"><img src="/img/HH_Logo.svg" class="navlogo" id="hh_logo" alt="PathOS"></a>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav navbar-right">
+									<li class="hidden">
+											<a href="#page-top"></a>
+									</li>
+									<li>
+											<a class="page-scroll" href="/index.html#mission">Mission</a>
+									</li>
+									<li>
+											<a class="page-scroll" href="/index.html#blog">Blog</a>
+									</li>
+									<li>
+											<a class="page-scroll" href="/index.html#problems">Problems</a>
+									</li>
+									<li>
+											<a class="page-scroll" href="/index.html#sites">Sites</a>
+									</li>
+									<li>
+											<a class="page-scroll" href="/index.html#sponsors">Sponsors</a>
+									</li>
+							</ul>
+					</div>
+					<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+	</nav>
+	<header style="padding-top:100px">
+	</header>
+		<hh-challenges></hh-challenges>
+		<footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+<div>HealthHack is an <a href="http://au.okfn.org/code-of-conduct/" target="_blank">
+<img alt="Open Knowledge Foundation Australia" class="footer-okfna" src="/img/okfna.png" style="height: 30px;">
+</a>
+            <a href="http://au.okfn.org/code-of-conduct/" target="_blank">Open Knowledge Foundation Australia event </a>
+        </div>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="https://twitter.com/okfnau"><i class="fa fa-twitter"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li>
+                        <a href="http://startbootstrap.com/template-overviews/agency/">Website Theme</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+		<!-- Bootstrap Core JavaScript -->
+		<script src="/vendor/jquery/jquery.min.js"></script>
+		<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+	    <!-- Theme JavaScript -->
+	    <script src="/js/agency.min.js"></script>
+	    <script src="/js/d3.v4.min.js"></script>
+	</body>
+</html>
