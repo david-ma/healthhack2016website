@@ -13,9 +13,7 @@
       <div class="container">
           <div class="row">
               <div class="col-md-9">
-                  <template is="dom-if" if="{{site.sponsorSpiel}}">
-                  <h1>A note from the Sponsor</h1>
-                  </template>
+                
                   <div id="sponsorSpiel"></div>
                   <h2>What to Expect</h2>
                   <div id="whatToExpectSpiel"></div>
@@ -40,7 +38,7 @@
                       <p class="sidebar-descriptor" id="sb-street_address"></p>
                       <p class="sidebar-descriptor" id="sb-location_coarse"></p>
                       <h2>Contact</h2>
-                      <a class="sidebar-descriptor" target="_blank" href="mailto:{{name}}@healthhack.com.au">{{name}}@healthhack.com.au</a>
+                      <a class="sidebar-descriptor" id="mail-link" target="_blank" href="mailto:info@healthhack.com.au">info@healthhack.com.au</a>
                   </div>
               </div>
           </div>

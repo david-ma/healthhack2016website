@@ -1,3 +1,12 @@
-[
-  {"title": "foo", "owner": "bar", "location": "Sydney", "description": "lorem ipsum"}
-]
+[{
+    "title": "foo",
+    "presenters": "bar",
+    "organisation": "foobar",
+    "organisationLink": "http://.foobar.com",
+    "demoLink": "http://.foobar.com",
+    "location": "Sydney",
+    "shortDescription": "lorem",
+    "description": "lorem ipsum",
+    "year": 2016,
+    "img": "/img/okfna.png"
+}]

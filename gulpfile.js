@@ -1,8 +1,6 @@
 // Assigning modules to local variables
 var gulp = require('gulp');
-
 var browserSync = require('browser-sync').create();
-
 var bower = require('gulp-bower');
 var pkg = require('./package.json');
 
@@ -35,5 +33,6 @@ gulp.task('browserSync', function() {
 gulp.task('dev', ['bower', 'browserSync'], function() {
     // Reloads the browser whenever HTML or JS files change
     gulp.watch('*.html', browserSync.reload);
+    gulp.watch('site/*.html', browserSync.reload);
     gulp.watch('js/**/*.js', browserSync.reload);
 });

@@ -1,3 +1,4 @@
+<link async rel="import" href="/async-js-imports.html">
 <script>
 window.stampSite = function(siteName) {
   var link = document.querySelector('link[rel="import"][href="/header-imports.html"]');
@@ -19,7 +20,10 @@ window.stampSite = function(siteName) {
     clone.querySelector('#sb-location_coarse').innerHTML = site.location_coarse;
     clone.querySelector('google-map').latitude = site.latitude;
     clone.querySelector('google-map').longitude = site.longitude;
-
+    clone.querySelector('google-map-marker').latitude = site.latitude;
+    clone.querySelector('google-map-marker').longitude = site.longitude;
+    clone.querySelector('#mail-link').href = `mailto:${site.name.toLowerCase()}@healthhack.com.au`;
+    clone.querySelector('#mail-link').innerHTML = `${site.name.toLowerCase()}@healthhack.com.au`;
     var general = sites.filter(function(site) { return site.name == 'general'})[0];
     clone.querySelector('#sb-date').innerHTML = general.date;
     document.body.appendChild(clone);
