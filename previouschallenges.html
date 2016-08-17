@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<script src="/js/conditional-dependencies.js"></script>
+		<script src="js/conditional-dependencies.js"></script>
 		<link rel="import" href="/header-imports.html">
 		<link rel="import" href="/footer-imports.html">
 		<link rel="import" href="challenge-template.html">
 		<link rel="import" href="challenge-bootstrapper.html">
-
+		<link async rel="import" href="hh-challenges.html">
+		<style>
+			h1,h2,h3,h4,h5,h6 {
+				text-transform:none;
+			}
+		</style>
 	</head>
 	<body>
 		<header style="padding-top:100px">
@@ -16,16 +21,13 @@
 	    </div>
 	  </header>
 		<section id="main-body" style="display:flex">
-			<input class="search" placeholder="search" />
-			<button class="btn btn-primary sort" data-sort="organisation"></button>
-			<div id="list-container" class="col-md-9" style="margin:auto">
-				<ul class="challenge-list">
+			<div class="col-md-7" style="margin:auto">
 
-				</ul>
-			</div>
+				<hh-challenges></hh-challenges>
+				</div>
 		</section>
 	</body>
 	<script>
-		stampChallenges(2016);
+		stampChallenges(2015);
 	</script>
 </html>
