@@ -37,18 +37,11 @@
         },
 {
         "name": "Perth",
-<<<<<<< HEAD
         "readable_location": "Resources and Chemistry Precinct",
         "location_coarse":  "Bentley WA 6102",
         "street_address": "Curtin University",
-        "where_coords" : [-32.0061951,115.8944182],
-=======
-        "readable_location": "TBA",
-        "location_coarse":  "TBA",
-        "street_address": "TBA",
         "latitude" : -32.0061951,
         "longitude": 115.8944182,
->>>>>>> e3545c282ad2b6ac7924b503a36a5f0ba351be21
         "contact" : ["David Colls", "Diana Adorno"],
         "image-sm" : "images/locations/perth.png",
         "programme": {"available": true, "url": ""},
