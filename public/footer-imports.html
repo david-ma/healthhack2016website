@@ -48,7 +48,7 @@
         <div class="row">
             <div class="col-md-4">
 <div>HealthHack is an <a href="http://au.okfn.org/code-of-conduct/" target="_blank">
-<img alt="Open Knowledge Foundation Australia" class="footer-okfna" src="/img/okfna.png" style="height: 30px;">
+<img alt="Open Knowledge Foundation Australia" class="footer-okfna" src="/img/okfna.png" style="height: 30px">
 </a>
         <a href="http://au.okfn.org/code-of-conduct/" target="_blank">Open Knowledge Foundation Australia event </a>
     </div>
@@ -71,22 +71,7 @@
 </footer>
 
 
-<script>
-var socket = io.connect();
-
-d3.select("#contact_button").on("click", function(d){
-	var data = {
-		name: $("#name").val(),
-		email: $("#email").val(),
-		role: $("#role").val(),
-		message: $("#message").val()
-	};
-
-	console.log(data);
-	socket.emit("healthhack_email", data);
-})
-
-</script>
+<script>var socket=io.connect();d3.select("#contact_button").on("click",function(e){var a={name:$("#name").val(),email:$("#email").val(),role:$("#role").val(),message:$("#message").val()};console.log(a),socket.emit("healthhack_email",a)})</script>
 
 
 

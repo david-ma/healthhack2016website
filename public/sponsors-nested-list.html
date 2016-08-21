@@ -10,10 +10,7 @@
                 margin-bottom: 20px;
             }
         </style>
-        <iron-ajax
-        auto
-        url="/data/sponsors-new.json"
-        last-response="{{sponsors}}">
+        <iron-ajax auto url="/data/sponsors-new.json" last-response="{{sponsors}}">
         </iron-ajax>
         <template is="dom-repeat" items="[[categories]]">
             <div class="sponsor-hr hr-padding">
@@ -34,36 +31,5 @@
             </div>
         </template>
     </template>
-    <script>
-        Polymer({
-            is: 'sponsors-nested-list',
-            properties: {
-                categories: {
-                    type: Array,
-                    value: [
-                        {type: "gold", scope: "national"},
-                        {type: "gold", scope: "community"},
-                        {type: "silver", scope: "national"},
-                        {type: "silver", scope: "community"},
-                        {type: "standard", scope: "community"}
-                    ]
-                },
-                mode: {
-                    type: String,
-                    notify: true,
-                    reflectToAttribute: true
-                }
-            },
-            _filterSponsors: function(category) {
-                var scope = category.scope;
-                var type = category.type;
-                // if(scope == undefined || type == undefined) {
-                //     return null;
-                // }
-                return function(item) {
-                    return item.scope == scope && item.type == type;
-                }
-            }
-        })
-    </script>
+    <script>Polymer({is:"sponsors-nested-list",properties:{categories:{type:Array,value:[{type:"gold",scope:"national"},{type:"gold",scope:"community"},{type:"silver",scope:"national"},{type:"silver",scope:"community"},{type:"standard",scope:"community"}]},mode:{type:String,notify:!0,reflectToAttribute:!0}},_filterSponsors:function(e){var t=e.scope,o=e.type;return function(e){return e.scope==t&&e.type==o}}})</script>
 </dom-module>

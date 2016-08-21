@@ -7,6 +7,7 @@
  *
  * http://ReactiveRaven.github.com/jqBootstrapValidation/
  */
+/* jshint ignore:start */
 
 (function( $ ){
 
@@ -910,3 +911,5 @@
   };
 
 })( jQuery );
+
+/* jshint ignore:end */

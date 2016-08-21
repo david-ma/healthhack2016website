@@ -1,6 +1,6 @@
-<link rel="import" href="/bower_components/polymer/polymer.html" />
+<link rel="import" href="/bower_components/polymer/polymer.html">
 <link rel="import" href="/bower_components/iron-collapse/iron-collapse.html">
-<link rel="import" href="/bower_components/juicy-html/juicy-html.html" />
+<link rel="import" href="/bower_components/juicy-html/juicy-html.html">
 <dom-module id="hh-challenges">
   <template>
     <style>
@@ -8,7 +8,7 @@
         display: block;
       }
     </style>
-    <input class='search-input' type="text" placeholder="Search" value="{{filterVal::input}}">
+    <input class="search-input" type="text" placeholder="Search" value="{{filterVal::input}}">
     <template is="dom-repeat" items="[[challenges]]" filter="{{_filter(filterVal)}}">
       <div class="challenge-item" style="margin:auto;padding:10px;width:100%;min-height:150px;justify-content:space-between;border-top:dashed;border-color:grey;border-width:thin;display:flex;flex-direction:column">
         <div>
@@ -18,7 +18,7 @@
           <iron-collapse>
             <div>
               <div style="display:flex;flex-direction:row">
-                <img class="challenge-img" src$="[[item.img]]" alt$="[[item.organisation]]"/>
+                <img class="challenge-img" src$="[[item.img]]" alt$="[[item.organisation]]">
                 <div style="display:flex;flex-direction:column">
                   <h5>Presented by [[item.presenters]]</h5>
                   <a href$="[[item.organisationLink]]">[[item.organisation]]</a>
@@ -31,26 +31,10 @@
         </div>
         <div>
           <button type="button" class="btn btn-primary challenge-demo-link">Working Demo</button>
-          <button type="button" onclick="this.closest('.challenge-item').querySelector('iron-collapse').toggle();" class="btn btn-primary">Details</button>
+          <button type="button" onclick='this.closest(".challenge-item").querySelector("iron-collapse").toggle()' class="btn btn-primary">Details</button>
         </div>
       </div>
     </template>
   </template>
-  <script>
-    Polymer({
-      is: 'hh-challenges',
-      properties: {
-        challenges: {
-          type: Array,
-          notify: true,
-          reflectToAttribute: true
-        }
-      },
-      _filter: function(filterVal) {
-        return function(challenge) {
-          return challenge.title.indexOf(filterVal) != -1
-        }
-      }
-    });
-  </script>
+  <script>Polymer({is:"hh-challenges",properties:{challenges:{type:Array,notify:!0,reflectToAttribute:!0}},_filter:function(e){return function(t){return t.title.indexOf(e)!=-1}}})</script>
 </dom-module>

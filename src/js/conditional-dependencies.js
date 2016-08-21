@@ -1,3 +1,4 @@
+/* jshint ignore:start */
 if ('registerElement' in document
 	&& 'createShadowRoot' in HTMLElement.prototype
 	&& 'import' in document.createElement('link')
@@ -12,3 +13,4 @@ if ('registerElement' in document
 if(!window.fetch) {
 	document.write('<script src="/bower_components/fetch/fetch.js"></script>')
 }
+/* jshint ignore:end */
