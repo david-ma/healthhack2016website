@@ -42,7 +42,7 @@ body {
 	background: linear-gradient(to bottom,rgba(255,255,255,0),#fff);
 }
 section.bg-light-gray .expando {
-	background: linear-gradient(to bottom,rgba(255,255,255,0),#eee);
+	background: linear-gradient(to bottom,rgba(255,255,255,0),#fff);
 }
 
 .expando p {
@@ -106,16 +106,22 @@ header {
 
 		@media (max-width: 768px) {
 			margin: 0;
-			transform: scale(0.8);
+			transform: scale(0.6);
 		}
 	}
 	#navlist {
 		list-style: none;
 		li {
 			font-size: 20px;
+			float: right;
 			@media (min-width: 768px) {
-				float: right;
 				padding: 20px;
+			}
+
+			@media (max-width: 768px) {
+				font-size: 15px;
+				padding-top: 20px;
+				padding-left: 10px;
 			}
 			a {
 				color: white;
@@ -187,12 +193,106 @@ header {
 	margin-top: -75px;
 	color: #fff;
 }
+
+
+	.event-regions div {
+		margin-bottom: 15px;
+	}
+
 }
+
+
+
+
+#mc_embed_signup {
+	background-color: #0d3c95;
+	background-image: url('/images/map-image.png');
+	background-position: center;
+	background-repeat: no-repeat;
+
+
+	.section-heading {
+		font-size: 24px;
+		color: white;
+		text-align: center;
+	}
+	.indicates-required {
+		color: white;
+	}
+
+	.mc-field-group {
+		label, strong {
+			color: white;
+		}
+		border-color: #08b3a6;
+		box-shadow: none;
+
+		#mce-MMERGE4 {
+			border-radius: 5px;
+			width: 100%;
+			height: 100px;
+			word-wrap: normal;
+		}
+
+		li {
+			float: left;
+			label {
+				padding-top: 10px;
+				padding-bottom: 10px;
+				padding-left: 5px;
+				padding-right: 15px;
+			}
+		}
+	}
+
+	#subscribe-button {
+		padding-top: 15px;
+		width: 60%;
+		margin: auto;
+	}
+
+	#mc-embedded-subscribe {
+		width: 100%;
+	}
+
+	#mc-embedded-subscribe {
+		padding: 0;
+		background-color: #08b3a6;
+		&:hover {
+			background-color: #068a80;
+		}
+	}
+
+	#mce-success-response, #mce-error-response {
+		width: 100%;
+		background: rgba(255,255,255,0.8);
+		padding: 10px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 footer {
 	padding-top: 5px;
 	width: 100%;
-	height: 30px;
+	height: 50px;
 	background: #ddd;
 }
 
