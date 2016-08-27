@@ -15,13 +15,30 @@ exports.config = {
 		"brisbane": "/site.html",
 		"perth": "/site.html"
 	},
+
+
 	services: {
 		"site": function(res, req, db, type){
 			if(sites.hasOwnProperty(type.toLowerCase())) {
 				var query = "select * from `healthhack_sites` where site='"+type+"' ORDER BY 1 ASC limit 1;";
 				db.query(query, function(error, results){
-					console.log(error);
-					console.log(results);
+					if(!error){
+						res.writeHead(200);
+						res.end(JSON.stringify(results));
+					} else {
+						res.writeHead(500);
+						res.end(JSON.stringify(error));
+					}
+				});
+			} else {
+				res.writeHead(500);
+				res.end("Error");
+			}
+		},
+		"sponsors": function(res, req, db, type){
+			if(sites.hasOwnProperty(type.toLowerCase())) {
+				var query = "select * from `healthhack_sponsors` where site = 'national' or site = '"+type+"';";
+				db.query(query, function(error, results){
 					if(!error){
 						res.writeHead(200);
 						res.end(JSON.stringify(results));
