@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>HealthHack Melbourne</title>
+	<title>HealthHack Australia</title>
 
 	<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="/css/main.css">
@@ -22,12 +22,12 @@
 .sidebar #address {
 	text-align: left;
 }
-#location_image {
+#venue_image {
 	width: 300px;
 	float: left;
 	margin-right: 20px;
 }
-#location_logo {
+#venue_logo {
 	float: right;
 	width: 300px;
 }
@@ -36,6 +36,22 @@
 	width: 300px;
 	margin-left: 20px;
 }
+#map {
+	width: 100%;
+	height: 400px;
+}
+#save-widget {
+	box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px;
+	background-color: white;
+	padding: 5px;
+	font-family: Roboto, Arial;
+	font-size: 13px;
+	margin: 15px;
+}
+#save-widget p {
+	margin: 0;
+}
+
 
 </style>
 </head>
@@ -82,14 +98,12 @@
 				<div id="venue_sponsor">
 				<div class="row">
 					<h1 class="col-sm-6">Venue Sponsor</h1>
-					<img class="col-sm-6 hidden-xs" id="location_logo" src="/images/sponsors/thoughtworks.png">
+					<img class="col-sm-6 hidden-xs" id="venue_logo" src="/images/sponsors/thoughtworks.png">
 				</div>
 
 				<div>
-					<img id="location_image" src="/images/locations/thoughtworks.jpg">
-					<p>ThoughtWorks is a software company and a community of passionate, purpose-led individuals. We think disruptively to deliver technology to address our clients' toughest challenges, all while seeking to revolutionise the IT industry and create positive social change.</p>
-					<p>We work with people and organisations who have ambitious missions - whether they are in the commercial, social or government sectors. We are strong believers in the power of software and technology as tools for social change. Through our Social Impact Program, we collaborate with organisations with a humanitarian mission and broad reach, helping them use technology to make an impact.</p>
-					<p>HealthHack was started in 2013 by a ThoughtWorker, Dr Maia Sauren, as a bridging gap between scientists and software technologists. Since then ThoughtWorks has continually supported HealthHack, helping it grow into a national annual event. ThoughtWorks also supports the Open Knowledge community and regularly hosts Open Knowledge events in our offices.</p>
+					<img id="venue_image" src="/images/locations/thoughtworks.jpg">
+					<div id="venue_description"><p>ThoughtWorks is a software company and a community of passionate, purpose-led individuals. We think disruptively to deliver technology to address our clients' toughest challenges, all while seeking to revolutionise the IT industry and create positive social change.</p><p>We work with people and organisations who have ambitious missions - whether they are in the commercial, social or government sectors. We are strong believers in the power of software and technology as tools for social change. Through our Social Impact Program, we collaborate with organisations with a humanitarian mission and broad reach, helping them use technology to make an impact.</p><p>HealthHack was started in 2013 by a ThoughtWorker, Dr Maia Sauren, as a bridging gap between scientists and software technologists. Since then ThoughtWorks has continually supported HealthHack, helping it grow into a national annual event. ThoughtWorks also supports the Open Knowledge community and regularly hosts Open Knowledge events in our offices.</p></div>
 				</div>
 
 				</div>
@@ -98,8 +112,7 @@
 				<div id="team">
 					<h1>Team</h1>
 					<img id="team_photo" src="/images/locations/melb-team.jpg">
-					<p>The Melbourne site is run by <a href="http://www.meetup.com/en-AU/Open-Knowledge-Melbourne/">Open Knowledge Melbourne</a>, who have a weekly meetup at ThoughtWorks every Wednesday at 6pm. They run GovHack and HealthHack in this city.</p>
-					<p>The Open Knowledge community brings together people who want to learn and share expertise in "open". Open data, open content, open source, open access, open government, open development - you're welcome! We have a particular interest in open data: finding it, encouraging government to release it, and tools to visualise, mash up, or build apps out of it.</p>
+					<div id="team_description"><p>The Melbourne site is run by <a href='http://www.meetup.com/en-AU/Open-Knowledge-Melbourne/'>Open Knowledge Melbourne</a>, who have a weekly meetup at ThoughtWorks every Wednesday at 6pm. They run GovHack and HealthHack in this city.</p><p>The Open Knowledge community brings together people who want to learn and share expertise in 'open'. Open data, open content, open source, open access, open government, open development - you're welcome! We have a particular interest in open data: finding it, encouraging government to release it, and tools to visualise, mash up, or build apps out of it.</p></div>
 				</div>
 
 
@@ -108,17 +121,15 @@
 			<div class="col-sm-6 col-md-4 sidebar">
 				<h1>Getting There</h1>
 
-				<p id="address">ThoughtWorks<br>23/303 Collins St, Melbourne VIC 3000</p>
-				<iframe async width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=ThoughtWorks, Melbourne&amp;ie=UTF8&amp;output=embed"></iframe>
-
+				<div id="save-widget">
+					<p id="address">ThoughtWorks<br>23/303 Collins St, Melbourne VIC 3000</p>
+				</div>
+				<div id="map"></div>
 
 				<h1>Contact Us</h1>
 				<p><i class="fa fa-twitter fa-lg"></i> <a href="https://twitter.com/healthhackau">@HealthHackAu</a></p>
-				<p><i class="fa fa-envelope-o fa-lg"></i> <a href="mailto:melbourne@healthhack.com.au">melbourne@healthhack.com.au</a></p>
+				<p><i class="fa fa-envelope-o fa-lg"></i> <a id="contact-email" href="mailto:melbourne@healthhack.com.au">melbourne@healthhack.com.au</a></p>
 				<p><i class="fa fa-envelope fa-lg"></i> <a href="http://eepurl.com/ccR9yr">Mailing List</a></p>
-
-
-
 
 			</div>
 		</div>
@@ -235,6 +246,71 @@
 	<script src="/js/vendor.min.js"></script>
 	<script src="/js/scripts.min.js"></script>
 
+<script>
+		var data = {
+			"site": "Melbourne",
+			"venue": "ThoughtWorks",
+			"address": "23/303 Collins St, Melbourne VIC 3000",
+			"lat": -37.8165944,
+			"lng": 144.9637732,
+			"placeId": "ChIJJSm1i7RC1moRWgd5CZHCx70",
+			"venue_logo": "/images/sponsors/thoughtworks.png",
+			"venue_image": "/images/locations/thoughtworks.jpg",
+			"venue_description": "<p>ThoughtWorks is a software company and a community of passionate, purpose-led individuals. We think disruptively to deliver technology to address our clients' toughest challenges, all while seeking to revolutionise the IT industry and create positive social change.</p><p>We work with people and organisations who have ambitious missions - whether they are in the commercial, social or government sectors. We are strong believers in the power of software and technology as tools for social change. Through our Social Impact Program, we collaborate with organisations with a humanitarian mission and broad reach, helping them use technology to make an impact.</p><p>HealthHack was started in 2013 by a ThoughtWorker, Dr Maia Sauren, as a bridging gap between scientists and software technologists. Since then ThoughtWorks has continually supported HealthHack, helping it grow into a national annual event. ThoughtWorks also supports the Open Knowledge community and regularly hosts Open Knowledge events in our offices.</p>",
+			"team_photo": "/images/locations/melb-team.jpg",
+			"team_description": "<p>The Melbourne site is run by <a href='http://www.meetup.com/en-AU/Open-Knowledge-Melbourne/'>Open Knowledge Melbourne</a>, who have a weekly meetup at ThoughtWorks every Wednesday at 6pm. They run GovHack and HealthHack in this city.</p><p>The Open Knowledge community brings together people who want to learn and share expertise in 'open'. Open data, open content, open source, open access, open government, open development - you're welcome! We have a particular interest in open data: finding it, encouraging government to release it, and tools to visualise, mash up, or build apps out of it.</p>"
+		};
+
+		$("title").text("HealthHack "+data.site);
+		$("#header_message h1").text("HealthHack "+data.site);
+		$("#header_message h2").text(data.venue);
+		$("#header_message h3").text(data.address);
+		$("#venue_logo").attr("src", data.venue_logo);
+		$("#venue_image").attr("src", data.venue_image);
+		$("#venue_description").html(data.venue_description);
+		$("#address").html(data.venue+'<br>'+data.address);
+		$("#contact-email").attr("href", "mailto:"+data.site.toLowerCase()+"@healthhack.com.au").html(data.site.toLowerCase()+"@healthhack.com.au");
+
+		function initMap() {
+			var mapDiv = document.getElementById('map');
+			var map = new google.maps.Map(mapDiv, {
+				center: {
+					lat: data.lat,
+					lng: data.lng
+				},
+				streetViewControl: false,
+				fullscreenControl: false,
+				mapTypeControl: false,
+				zoom: 17
+			});
+
+			var widgetDiv = document.getElementById('save-widget');
+			map.controls[google.maps.ControlPosition.TOP_LEFT].push(widgetDiv);
+
+			// Append a Save Control to the existing save-widget div.
+			var saveWidget = new google.maps.SaveWidget(widgetDiv, {
+				place: {
+					placeId: data.placeId,
+					location: {lat: data.lat, lng: data.lng}
+				},
+				attribution: {
+					source: 'Google Maps JavaScript API',
+					webUrl: 'https://developers.google.com/maps/'
+				}
+			});
+
+			var marker = new google.maps.Marker({
+				map: map,
+				position: saveWidget.getPlace().location
+			});
+		}
+
+
+
+</script>
+
+
+
 
 	<script>
 		$( document ).ready(function(){
@@ -267,6 +343,12 @@
 
 	<!-- Mailchimp Javascript -->
 <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='MMERGE3';ftypes[3]='text';fnames[4]='MMERGE4';ftypes[4]='text';fnames[5]='MMERGE5';ftypes[5]='radio';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+
+	<!-- Google Maps -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5BnoexCNyCosPsiH8JKh1N7r-RuJlE6A&callback=initMap"
+			async defer>
+	</script>
+
 
 	<!-- Google Analytics-->
 <script>
