@@ -11,9 +11,12 @@
 	<link rel="stylesheet" href="/css/main.css">
 
 	<style>
+
+
+
 	</style>
 </head>
-<body id="page-top" class="site site-page">
+<body id="page-top" class="site site-page edit-page">
 <nav id="nav">
 	<div class="container">
 		<div class="row">
@@ -41,8 +44,8 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<h1>HealthHack Site</h1>
-				<h2>Venue Name</h2>
-				<h3>Venue Address</h3>
+				<textarea id="venue">Venue Name</textarea>
+				<textarea id="venue_address">Venue Address</textarea>
 			</div>
 		</div>
 	</div>
@@ -61,7 +64,7 @@
 
 				<div>
 					<img id="venue_image" src="/images/placeholder.jpg">
-					<div id="venue_description"><p>Enter a description here</p></div>
+					<div id="venue_description"><textarea>Enter a description here</textarea></div>
 				</div>
 			</div>
 
@@ -69,7 +72,7 @@
 			<div id="team" class="row col-xs-12">
 				<h1>Team</h1>
 				<img id="team_photo" src="/images/placeholder.jpg">
-				<div id="team_description"><p>Team Description goes here.</p></div>
+				<div id="team_description"><textarea>Team Description goes here.</textarea></div>
 			</div>
 
 		</div>
@@ -192,11 +195,11 @@
 
 <!-- Dress up the page with data about our sites -->
 <!-- DKGM 28-8-2016 -->
-<script>function initMap(){var a=document.getElementById("map"),e=new google.maps.Map(a,{center:{lat:data.lat,lng:data.lng},streetViewControl:!1,fullscreenControl:!1,mapTypeControl:!1,zoom:17}),t=document.getElementById("save-widget");e.controls[google.maps.ControlPosition.TOP_LEFT].push(t);var o=new google.maps.SaveWidget(t,{place:{placeId:data.placeId,location:{lat:data.lat,lng:data.lng}},attribution:{source:"Google Maps JavaScript API",webUrl:"https://developers.google.com/maps/"}});new google.maps.Marker({map:e,position:o.getPlace().location})}var site=window.location.pathname.slice(1).toLowerCase(),data=null;$.get("/site/"+site,function(a){data=JSON.parse(a)[0],$("title").text("HealthHack "+data.site),$("#header_message h1").text("HealthHack "+data.site),$("#header_message h2").text(data.venue),$("#header_message h3").text(data.address),$("#venue_logo").attr("src",data.venue_logo),$("#venue_image").attr("src",data.venue_image),$("#venue_description").html(data.venue_description),$("#team_photo").attr("src",data.team_photo),$("#team_description").html(data.team_description),$("#address").html(data.venue+"<br>"+data.address),$("#contact-email").attr("href","mailto:"+data.site.toLowerCase()+"@healthhack.com.au").html(data.site.toLowerCase()+"@healthhack.com.au")})</script>
+<script>function initMap(){var a=document.getElementById("map"),e=new google.maps.Map(a,{center:{lat:data.lat,lng:data.lng},streetViewControl:!1,fullscreenControl:!1,mapTypeControl:!1,zoom:17}),t=document.getElementById("save-widget");e.controls[google.maps.ControlPosition.TOP_LEFT].push(t);var o=new google.maps.SaveWidget(t,{place:{placeId:data.placeId,location:{lat:data.lat,lng:data.lng}},attribution:{source:"Google Maps JavaScript API",webUrl:"https://developers.google.com/maps/"}});new google.maps.Marker({map:e,position:o.getPlace().location})}var site=window.location.pathname.slice(6).toLowerCase(),data=null;$.get("/site/"+site,function(a){data=JSON.parse(a)[0],$("title").text("HealthHack "+data.site),$("#header_message h1").text("HealthHack "+data.site),$("#venue").text(data.venue),$("#venue_address").text(data.address),$("#venue_logo").attr("src",data.venue_logo),$("#venue_image").attr("src",data.venue_image),$("#venue_description").html(data.venue_description),$("#team_photo").attr("src",data.team_photo),$("#team_description").html(data.team_description),$("#address").html(data.venue+"<br>"+data.address),$("#contact-email").attr("href","mailto:"+data.site.toLowerCase()+"@healthhack.com.au").html(data.site.toLowerCase()+"@healthhack.com.au")})</script>
 
 <!-- Load the Sponsors-->
 <!-- DKGM 28-8-2016 -->
-<script>$(document).ready(function(){d3.select("#be-our-friend").on("click",function(){window.open("mailto:sponsors@healthhack.com.au")});var o=[{logo:"/images/sponsors/thoughtworks-australia.png",name:"ThoughtWorks",text:"ThoughtWorks is the venue sponsor for Melbourne!",link:"https://www.thoughtworks.com"}];$.get("/sponsors/"+site,function(t){o=JSON.parse(t);var e=d3.select("#list-of-friends");o.forEach(function(o){if(o.auth){var t=e.append("a").attr({href:o.link}).append("div").attr({"class":"friend-block fb-box"});t.append("img").attr({src:o.logo}),t.append("h2").text(o.name),t.append("p").text(o.text)}})})})</script>
+<script>function uploadSponsor(e){console.log(e);var t=d3.select("body").append("div").classed("fader",!0).on("click",function(){d3.select(".fader").remove()}).append("div").on("click",function(){d3.event.stopPropagation()}).classed("form",!0);t.append("div").append("h1").text("Add a new sponsor");var a=t.append("form").attr({action:"upload_sponsor",enctype:"multipart/form-data",method:"post"}).append("table"),n=a.append("tr");n.append("td").text("Name"),n.append("td").append("input").attr({required:!0,type:"text",name:"name"}),n=a.append("tr"),n.append("td").text("Logo"),n.append("td").append("input").attr({required:!0,type:"file",name:"logo",accept:"image/*"}),n=a.append("tr"),n.append("td").text("Description"),n.append("td").append("input").attr({required:!0,type:"text",name:"text"}),n=a.append("tr"),n.append("td").text("site"),n.append("td").html('<input type="radio" name="site" value="national" required> National<br><input type="radio" name="site" value="sydney" required> Sydney<br><input type="radio" name="site" value="melbourne" required> Melbourne<br><input type="radio" name="site" value="brisbane" required> Brisbane<br><input type="radio" name="site" value="canberra" required> Canberra<br><input type="radio" name="site" value="perth" required> Perth'),n=a.append("tr"),n.append("td").text("Submit"),n.append("td").append("input").attr({type:"submit"})}function updateAddress(){var e=$("#venue").val(),t=$("#venue_address").val();$("#address").html(e+"<br>"+t)}$(document).ready(function(){d3.select("#be-our-friend").on("click",function(){window.open("mailto:sponsors@healthhack.com.au")});var e=[{logo:"/images/sponsors/thoughtworks-australia.png",name:"ThoughtWorks",text:"ThoughtWorks is the venue sponsor for Melbourne!",link:"https://www.thoughtworks.com"}];$.get("/sponsors/"+site,function(t){e=JSON.parse(t);var a=d3.select("#list-of-friends");e.forEach(function(e){var t=a.append("a").attr({href:e.link}).append("div").attr({"class":"friend-block fb-box"}).datum(e).on("click",uploadSponsor);t.append("img").attr({src:e.logo}),t.append("h2").text(e.name),t.append("p").text(e.text),e.auth||(t.classed("unconfirmed",!0),t.append("h3").text("Unconfirmed"))})})}),$("#venue").on("change",updateAddress),$("#venue_address").on("change",updateAddress),$("#venue_description textarea"),$("#team_description textarea");var sponsor=d3.select("#list-of-friends").append("div").classed("friend-block fb-box",!0);sponsor.append("img").attr("src","/images/placeholder.jpg"),sponsor.append("h2").text("Click me to add a sponsor"),sponsor.append("p").text("You need to add a name, description and a photo"),sponsor.append("a").text("Also a link"),sponsor.on("click",uploadSponsor)</script>
 
 <!-- Mailchimp Javascript -->
 <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">!function(e){window.fnames=new Array,window.ftypes=new Array,fnames[0]="EMAIL",ftypes[0]="email",fnames[1]="FNAME",ftypes[1]="text",fnames[2]="LNAME",ftypes[2]="text",fnames[3]="MMERGE3",ftypes[3]="text",fnames[4]="MMERGE4",ftypes[4]="text",fnames[5]="MMERGE5",ftypes[5]="radio"}(jQuery);var $mcj=jQuery.noConflict(!0)</script>

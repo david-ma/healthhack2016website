@@ -13,7 +13,7 @@
 	<style>
 	</style>
 </head>
-<body id="page-top" class="site">
+<body id="page-top" class="site site-page">
 <nav id="nav">
 	<div class="container">
 		<div class="row">
@@ -48,7 +48,7 @@
 	</div>
 </header>
 
-<div class="container site-page page">
+<div class="container page">
 
 	<div class="row">
 		<div class="col-sm-6 col-md-8">
@@ -256,8 +256,6 @@
 			window.open("mailto:sponsors@healthhack.com.au");
 		});
 
-
-
 		var sponsors = [{
 			logo: "/images/sponsors/thoughtworks-australia.png",
 			name: "ThoughtWorks",
@@ -267,21 +265,22 @@
 
 		$.get('/sponsors/'+site, function(d){
 			sponsors = JSON.parse(d);
-			console.log(d);
 			var box = d3.select("#list-of-friends");
 
 			sponsors.forEach(function(sponsor){
-				var block = box.append('a').attr({
-					href: sponsor.link
-				}).append("div").attr({
-					class: "friend-block fb-box"
-				});
+				if(sponsor.auth) {
+					var block = box.append('a').attr({
+						href: sponsor.link
+					}).append("div").attr({
+						class: "friend-block fb-box"
+					});
 
-				block.append("img").attr({
-					src: sponsor.logo
-				});
-				block.append("h2").text(sponsor.name);
-				block.append("p").text(sponsor.text);
+					block.append("img").attr({
+						src: sponsor.logo
+					});
+					block.append("h2").text(sponsor.name);
+					block.append("p").text(sponsor.text);
+				}
 			});
 		});
 	});

@@ -11,9 +11,12 @@
 	<link rel="stylesheet" href="/css/main.css">
 
 	<style>
+
+
+
 	</style>
 </head>
-<body id="page-top" class="site site-page">
+<body id="page-top" class="site site-page edit-page">
 <nav id="nav">
 	<div class="container">
 		<div class="row">
@@ -41,8 +44,8 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<h1>HealthHack Site</h1>
-				<h2>Venue Name</h2>
-				<h3>Venue Address</h3>
+				<textarea id="venue">Venue Name</textarea>
+				<textarea id="venue_address">Venue Address</textarea>
 			</div>
 		</div>
 	</div>
@@ -61,7 +64,7 @@
 
 				<div>
 					<img id="venue_image" src="/images/placeholder.jpg">
-					<div id="venue_description"><p>Enter a description here</p></div>
+					<div id="venue_description"><textarea>Enter a description here</textarea></div>
 				</div>
 			</div>
 
@@ -69,7 +72,7 @@
 			<div id="team" class="row col-xs-12">
 				<h1>Team</h1>
 				<img id="team_photo" src="/images/placeholder.jpg">
-				<div id="team_description"><p>Team Description goes here.</p></div>
+				<div id="team_description"><textarea>Team Description goes here.</textarea></div>
 			</div>
 
 		</div>
@@ -159,7 +162,7 @@
 
 			</div>
 			<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-			<div style="position: absolute; left: -5000px" aria-hidden="true"><input type="text" name="b_16e3b341b87deaa490a117bf9_220ca0dffa" tabindex="-1" value=""></div>
+			<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_16e3b341b87deaa490a117bf9_220ca0dffa" tabindex="-1" value=""></div>
 		</div>
 	</form>
 </div>
@@ -170,7 +173,7 @@
 		<div class="row">
 			<div class="col-sm-6 text-center">
 				<div>HealthHack is an <a href="http://au.okfn.org/code-of-conduct/" target="_blank">
-					<img alt="Open Knowledge Foundation Australia" class="footer-okfna" src="/images/okfna.png" style="height: 30px">
+					<img alt="Open Knowledge Foundation Australia" class="footer-okfna" src="/images/okfna.png" style="height: 30px;">
 				</a>
 					<a href="http://au.okfn.org/code-of-conduct/" target="_blank">Open Knowledge Foundation Australia event </a>
 				</div>
@@ -192,21 +195,205 @@
 
 <!-- Dress up the page with data about our sites -->
 <!-- DKGM 28-8-2016 -->
-<script>function initMap(){var a=document.getElementById("map"),e=new google.maps.Map(a,{center:{lat:data.lat,lng:data.lng},streetViewControl:!1,fullscreenControl:!1,mapTypeControl:!1,zoom:17}),t=document.getElementById("save-widget");e.controls[google.maps.ControlPosition.TOP_LEFT].push(t);var o=new google.maps.SaveWidget(t,{place:{placeId:data.placeId,location:{lat:data.lat,lng:data.lng}},attribution:{source:"Google Maps JavaScript API",webUrl:"https://developers.google.com/maps/"}});new google.maps.Marker({map:e,position:o.getPlace().location})}var site=window.location.pathname.slice(1).toLowerCase(),data=null;$.get("/site/"+site,function(a){data=JSON.parse(a)[0],$("title").text("HealthHack "+data.site),$("#header_message h1").text("HealthHack "+data.site),$("#header_message h2").text(data.venue),$("#header_message h3").text(data.address),$("#venue_logo").attr("src",data.venue_logo),$("#venue_image").attr("src",data.venue_image),$("#venue_description").html(data.venue_description),$("#team_photo").attr("src",data.team_photo),$("#team_description").html(data.team_description),$("#address").html(data.venue+"<br>"+data.address),$("#contact-email").attr("href","mailto:"+data.site.toLowerCase()+"@healthhack.com.au").html(data.site.toLowerCase()+"@healthhack.com.au")})</script>
+<script>
+	var site = window.location.pathname.slice(6).toLowerCase();
+	var data = null;
+	$.get('/site/'+site, function(d){
+		data = JSON.parse(d)[0];
+
+		$("title").text("HealthHack "+data.site);
+		$("#header_message h1").text("HealthHack "+data.site);
+		$("#venue").text(data.venue);
+		$("#venue_address").text(data.address);
+		$("#venue_logo").attr("src", data.venue_logo);
+		$("#venue_image").attr("src", data.venue_image);
+		$("#venue_description").html(data.venue_description);
+		$("#team_photo").attr("src", data.team_photo);
+		$("#team_description").html(data.team_description);
+		$("#address").html(data.venue+'<br>'+data.address);
+		$("#contact-email").attr("href", "mailto:"+data.site.toLowerCase()+"@healthhack.com.au")
+				.html(data.site.toLowerCase()+"@healthhack.com.au");
+	});
+
+
+	function initMap() {
+		var mapDiv = document.getElementById('map');
+		var map = new google.maps.Map(mapDiv, {
+			center: {
+				lat: data.lat,
+				lng: data.lng
+			},
+			streetViewControl: false,
+			fullscreenControl: false,
+			mapTypeControl: false,
+			zoom: 17
+		});
+
+		var widgetDiv = document.getElementById('save-widget');
+		map.controls[google.maps.ControlPosition.TOP_LEFT].push(widgetDiv);
+
+		// Append a Save Control to the existing save-widget div.
+		var saveWidget = new google.maps.SaveWidget(widgetDiv, {
+			place: {
+				placeId: data.placeId,
+				location: {lat: data.lat, lng: data.lng}
+			},
+			attribution: {
+				source: 'Google Maps JavaScript API',
+				webUrl: 'https://developers.google.com/maps/'
+			}
+		});
+
+		var marker = new google.maps.Marker({
+			map: map,
+			position: saveWidget.getPlace().location
+		});
+	}
+</script>
 
 <!-- Load the Sponsors-->
 <!-- DKGM 28-8-2016 -->
-<script>$(document).ready(function(){d3.select("#be-our-friend").on("click",function(){window.open("mailto:sponsors@healthhack.com.au")});var o=[{logo:"/images/sponsors/thoughtworks-australia.png",name:"ThoughtWorks",text:"ThoughtWorks is the venue sponsor for Melbourne!",link:"https://www.thoughtworks.com"}];$.get("/sponsors/"+site,function(t){o=JSON.parse(t);var e=d3.select("#list-of-friends");o.forEach(function(o){if(o.auth){var t=e.append("a").attr({href:o.link}).append("div").attr({"class":"friend-block fb-box"});t.append("img").attr({src:o.logo}),t.append("h2").text(o.name),t.append("p").text(o.text)}})})})</script>
+<script>
+	$( document ).ready(function(){
+		d3.select("#be-our-friend").on('click',function(){
+			window.open("mailto:sponsors@healthhack.com.au");
+		});
+
+		var sponsors = [{
+			logo: "/images/sponsors/thoughtworks-australia.png",
+			name: "ThoughtWorks",
+			text: "ThoughtWorks is the venue sponsor for Melbourne!",
+			link: "https://www.thoughtworks.com"
+		}];
+
+		$.get('/sponsors/'+site, function(d){
+			sponsors = JSON.parse(d);
+			var box = d3.select("#list-of-friends");
+
+			sponsors.forEach(function(sponsor){
+				var block = box.append('a').attr({
+					href: sponsor.link
+				}).append("div").attr({
+					class: "friend-block fb-box"
+				}).datum(sponsor).on('click', uploadSponsor);
+
+				block.append("img").attr({
+					src: sponsor.logo
+				});
+				block.append("h2").text(sponsor.name);
+				block.append("p").text(sponsor.text);
+
+				if(!sponsor.auth) {
+					block.classed("unconfirmed", true);
+					block.append("h3").text("Unconfirmed");
+				}
+
+			});
+		});
+	});
+
+
+
+	$("#venue").on("change", updateAddress);
+	$("#venue_address").on("change", updateAddress);
+
+
+	$("#venue_description textarea");
+	$("#team_description textarea");
+
+
+	var sponsor = d3.select("#list-of-friends").append("div").classed("friend-block fb-box", true);
+	sponsor.append("img").attr("src", "/images/placeholder.jpg");
+	sponsor.append("h2").text("Click me to add a sponsor");
+	sponsor.append("p").text("You need to add a name, description and a photo");
+	sponsor.append("a").text("Also a link");
+
+	sponsor.on('click', uploadSponsor);
+
+	function uploadSponsor(d){
+
+		console.log(d);
+
+		var form = d3.select("body").append("div").classed("fader", true).on("click",function(){
+			d3.select(".fader").remove();
+		}).append("div").on("click",function(){
+			d3.event.stopPropagation();
+		}).classed("form", true);
+
+		form.append("div").append("h1").text("Add a new sponsor");
+		var table = form.append("form").attr({
+					action: "upload_sponsor",
+					enctype: "multipart/form-data",
+					method: "post"
+				}).append("table"),
+			row = table.append("tr");
+
+		row.append("td").text("Name");
+		row.append("td").append("input").attr({
+			required: true,
+			type: "text",
+			name: "name"
+		});
+
+		row = table.append("tr");
+		row.append("td").text("Logo");
+		row.append("td").append("input").attr({
+			required: true,
+			type: "file",
+			name: "logo",
+			accept: "image/*"
+		});
+
+		row = table.append("tr");
+		row.append("td").text("Description");
+		row.append("td").append("input").attr({
+			required: true,
+			type: "text",
+			name: "text"
+		});
+
+		row = table.append("tr");
+		row.append("td").text("site");
+		row.append("td").html('<input type="radio" name="site" value="national" required> National<br>' +
+				'<input type="radio" name="site" value="sydney" required> Sydney<br>' +
+				'<input type="radio" name="site" value="melbourne" required> Melbourne<br>' +
+				'<input type="radio" name="site" value="brisbane" required> Brisbane<br>' +
+				'<input type="radio" name="site" value="canberra" required> Canberra<br>' +
+				'<input type="radio" name="site" value="perth" required> Perth');
+
+		row = table.append("tr");
+		row.append("td").text("Submit")
+		row.append("td").append("input").attr({
+			type: "submit"
+		});
+	}
+
+	function updateAddress(){
+		var venue = $("#venue").val(),
+			address = $("#venue_address").val();
+		$("#address").html(venue+'<br>'+address);
+	}
+</script>
 
 <!-- Mailchimp Javascript -->
-<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">!function(e){window.fnames=new Array,window.ftypes=new Array,fnames[0]="EMAIL",ftypes[0]="email",fnames[1]="FNAME",ftypes[1]="text",fnames[2]="LNAME",ftypes[2]="text",fnames[3]="MMERGE3",ftypes[3]="text",fnames[4]="MMERGE4",ftypes[4]="text",fnames[5]="MMERGE5",ftypes[5]="radio"}(jQuery);var $mcj=jQuery.noConflict(!0)</script>
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='MMERGE3';ftypes[3]='text';fnames[4]='MMERGE4';ftypes[4]='text';fnames[5]='MMERGE5';ftypes[5]='radio';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 
 <!-- Google Maps -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5BnoexCNyCosPsiH8JKh1N7r-RuJlE6A&callback=initMap" async defer="defer"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5BnoexCNyCosPsiH8JKh1N7r-RuJlE6A&callback=initMap"
+		async defer>
+</script>
 
 
 <!-- Google Analytics-->
-<script>!function(e,t,a,n,c,o,s){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,o=t.createElement(a),s=t.getElementsByTagName(a)[0],o.async=1,o.src=n,s.parentNode.insertBefore(o,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-82263021-1","auto"),ga("send","pageview")</script>
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-82263021-1', 'auto');
+	ga('send', 'pageview');
+</script>
 
 </body>
 </html>

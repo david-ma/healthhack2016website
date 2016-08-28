@@ -1,3 +1,8 @@
+const fs = require('fs');
+const formidable = require('formidable');
+const path = require('path');
+const util = require('util');
+
 var sites = {
 	"sydney": true,
 	"melbourne": true,
@@ -13,11 +18,66 @@ exports.config = {
 		"sydney": "/site.html",
 		"canberra": "/site.html",
 		"brisbane": "/site.html",
-		"perth": "/site.html"
+		"perth": "/site.html",
+		"edit-melbourne": "/edit-site.html",
+		"edit-sydney": "/edit-site.html",
+		"edit-canberra": "/edit-site.html",
+		"edit-brisbane": "/edit-site.html",
+		"edit-perth": "/edit-site.html"
 	},
 
 
 	services: {
+		"upload_sponsor": function(res, req, db, type){
+			// var form = new formidable.IncomingForm();
+            //
+			// form.parse(req, function(err, fields, files) {
+			// 	res.writeHead(200, {'content-type': 'text/plain'});
+			// 	res.write('received upload:\n\n');
+			// 	res.end(util.inspect({fields: fields, files: files}));
+			// });
+            //
+			// return;
+            //
+            //
+
+
+			console.log("Woo... uploading sponsor...");
+			// console.log(type);
+			// console.log(req);
+
+
+			// create an incoming form object
+			var form = new formidable.IncomingForm();
+
+			// specify that we want to allow the user to upload multiple files in a single request
+			form.multiples = true;
+
+			// store all uploads in the /uploads directory
+			form.uploadDir = path.join(__dirname, '/uploads');
+
+			// every time a file has been uploaded successfully,
+			// rename it to it's orignal name
+			form.on('file', function(field, file) {
+				fs.rename(file.path, path.join(form.uploadDir, file.name));
+			});
+
+			// log any errors that occur
+			form.on('error', function(err) {
+				console.log('An error has occured: \n' + err);
+			});
+
+
+			// parse the incoming request containing the form data
+			form.parse(req, function(err, fields, files) {
+				res.writeHead(200, {'content-type': 'text/plain'});
+				res.write('Success!\n');
+				res.write('Received upload:\n\n');
+				res.end(util.inspect({fields: fields, files: files}));
+			});
+
+
+		},
 		"site": function(res, req, db, type){
 			if(sites.hasOwnProperty(type.toLowerCase())) {
 				var query = "select * from `healthhack_sites` where site='"+type+"' ORDER BY 1 ASC limit 1;";
