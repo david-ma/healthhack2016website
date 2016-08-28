@@ -228,7 +228,12 @@
 		var header = form.append("div").append("h1").text("Edit site details");
 
 		console.log(data);
-		var table = form.append("table");
+		var table = form.append("form").attr({
+			onsubmit: "return checkForm(this);",
+			action: "edit_site",
+			enctype: "multipart/form-data",
+			method: "post"
+		}).append("table");
 
 		Object.keys(data).forEach(function(key){
 			var row = table.append("tr").attr("id", "form-"+key);
@@ -247,6 +252,22 @@
 			}
 		});
 
+
+        var row = table.append("tr");
+        row.append("td").text("Password");
+        row.append("td").append("input").attr({
+            required: true,
+            type: "text",
+            name: "password"
+        });
+        row.append("input").attr({
+        	required: true,
+            id: "current_url",
+            name: "current_url",
+            type: "hidden"
+        });
+        $("#current_url").val(window.location.href);
+
 		var row = table.append("tr");
 		row.append("td").text("Save");
 		row.append("td").append("input").attr({
@@ -259,6 +280,7 @@
 
 
 	function buildImage(key, div, src){
+		div.classed("image-row", true).datum(key);
 		div.append("input").attr({
 			id: "hidden-image-src-"+key,
 			name: key,
@@ -273,7 +295,7 @@
 		div.append("input").attr({
 			id: "image-upload-"+key,
 			type: "file",
-			name: "logo",
+			name: key,
 			accept: "image/*"
 		});
 	}
@@ -316,11 +338,9 @@
 			position: saveWidget.getPlace().location
 		});
 	}
-</script>
 
 <!-- Load the Sponsors-->
 <!-- DKGM 28-8-2016 -->
-<script>
 	$( document ).ready(function(){
 		d3.select("#be-our-friend").on('click',function(){
 			window.open("mailto:sponsors@healthhack.com.au");
@@ -367,12 +387,17 @@
 	sponsor.on('click', uploadSponsor);
 
 	function checkForm(){
-		if ($("#hidden-image-src").val() || $("#image-upload").val()) {
-			return true;
-		} else {
-			alert("Please add a logo");
-			return false;
-		}
+		var result = true;
+		d3.selectAll(".image-row").each(function(key){
+			var old_img = $("#hidden-image-src-"+key).val(),
+				new_img = $("#image-upload-"+key).val();
+			if ( old_img === "" && new_img === "") {
+				alert("Please add a "+key);
+				result = false;
+			}
+		});
+		console.log("checking form... "+result);
+		return result;
 	}
 
 	function uploadSponsor(d){
@@ -426,27 +451,8 @@
 
 		row = table.append("tr");
 		row.append("td").text("Logo");
-		var image = row.append("td");
 
-		image.append("input").attr({
-			id: "hidden-image-src",
-			name: "logo",
-			type: "hidden"
-		});
-
-		if(d.logo) {
-			image.append("img").attr({
-				src: d.logo
-			});
-			$("#hidden-image-src").val(d.logo);
-		}
-
-		image.append("input").attr({
-			id: "image-upload",
-			type: "file",
-			name: "logo",
-			accept: "image/*"
-		});
+		buildImage("logo", row.append("td"), d.logo);
 
 		row = table.append("tr");
 		row.append("td").text("Description (try to stay under 140 chars please)");

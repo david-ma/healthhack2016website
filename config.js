@@ -28,6 +28,75 @@ exports.config = {
 
 
 	services: {
+		"edit_site": function(res, req, db, type){
+			console.log("Ok, Editing Site...");
+
+			// create an incoming form object
+			var form = new formidable.IncomingForm();
+
+			// specify that we want to allow the user to upload multiple files in a single request
+			form.multiples = true;
+
+			// store all uploads in the /uploads directory
+			form.uploadDir = path.join(__dirname, '/tmp');
+
+			// log any errors that occur
+			form.on('error', function(err) {
+				console.log('An error has occured: \n' + err);
+			});
+
+			// parse the incoming request containing the form data
+			form.parse(req, function(err, fields, files) {
+
+				// Protected by a password... change your password here
+				// We should also probably rate limit this shit
+				if(fields.password === "password" || fields.password === "debug") {
+
+					var images = {
+						venue_logo: fields.venue_logo,
+						venue_image: fields.venue_image,
+						site_photo: fields.site_photo
+					};
+
+					Object.keys(files).forEach(function(key){
+						if(files[key].name) {
+							images[key] = '/images/uploads/'+fields.site.toLowerCase()+'/'+files[key].name;
+							fs.createReadStream(files[key].path).pipe(fs.createWriteStream(path.join(__dirname, '/public'+images[key])));
+							fs.rename(files[key].path, path.join(form.uploadDir, files[key].name));
+						}
+					});
+
+					var query = "INSERT INTO `healthhack_sites` (`id`, `site`, `venue`, `address`, `lat`, `lng`, `placeId`, `venue_logo`, `venue_image`, `venue_description`, `site_info_title`, `site_photo`, `site_description`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+
+					db.queryVariables(query, [fields.site, fields.venue, fields.address, fields.lat, fields.lng, fields.placeId, images.venue_logo, images.venue_image, fields.venue_description, fields.site_info_title, images.site_photo, fields.site_description], function(err, results) {
+						if(!err) {
+							if (fields.password === "debug") {
+								res.writeHead(200, {'content-type': 'text/plain'});
+								res.write('Success!\n');
+								res.write('Received upload:\n\n');
+								res.write(util.inspect({fields: fields, files: files}));
+								res.write('\n\nDatabase results:\n');
+								res.write(JSON.stringify(results));
+								res.end();
+							} else {
+								console.log(fields);
+								var url = fields.current_url;
+								var body ='<meta http-equiv="refresh" content="0; url='+url+'">';
+								res.writeHead(302, {"Location": url});
+								res.end(body);
+							}
+						} else {
+							res.writeHead(500, {'content-type': 'text/plain'});
+							res.end(JSON.stringify(err));
+						}
+					});
+				} else {
+					res.writeHead(403, {'content-type': 'text/plain'});
+					res.end("Wrong Password");
+				}
+			});
+
+		},
 		"upload_sponsor": function(res, req, db, type){
 			console.log("Woo! Uploading sponsor...");
 
