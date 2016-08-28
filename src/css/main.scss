@@ -438,6 +438,12 @@ footer {
 		input[type="text"] {
 			width: 100%;
 		}
+		#friend-delete {
+			float: right;
+		}
+		label {
+			cursor: pointer;
+		}
 	}
 	.unconfirmed {
 		border: dotted red 5px;

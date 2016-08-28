@@ -268,12 +268,12 @@
 			var box = d3.select("#list-of-friends");
 
 			sponsors.forEach(function(sponsor){
-				if(sponsor.auth) {
+				if(sponsor.auth && sponsor.text !== "deleted") {
 					var block = box.append('a').attr({
 						href: sponsor.link
 					}).append("div").attr({
 						class: "friend-block fb-box"
-					});
+					}).datum(sponsor);
 
 					block.append("img").attr({
 						src: sponsor.logo
