@@ -66,10 +66,10 @@
 			</div>
 
 
-			<div id="team" class="row col-xs-12">
-				<h1>Team</h1>
-				<img id="team_photo" src="/images/placeholder.jpg">
-				<div id="team_description"><p>Team Description goes here.</p></div>
+			<div id="site_info" class="row col-xs-12">
+				<h1 id="site_info_title">Team</h1>
+				<img id="site_photo" src="/images/placeholder.jpg">
+				<div id="site_description"><p>Team Description goes here.</p></div>
 			</div>
 
 		</div>
@@ -205,8 +205,9 @@
 		$("#venue_logo").attr("src", data.venue_logo);
 		$("#venue_image").attr("src", data.venue_image);
 		$("#venue_description").html(data.venue_description);
-		$("#team_photo").attr("src", data.team_photo);
-		$("#team_description").html(data.team_description);
+		$("#site_info_title").text(data.site_info_title);
+		$("#site_photo").attr("src", data.site_photo);
+		$("#site_description").html(data.site_description);
 		$("#address").html(data.venue+'<br>'+data.address);
 		$("#contact-email").attr("href", "mailto:"+data.site.toLowerCase()+"@healthhack.com.au")
 				.html(data.site.toLowerCase()+"@healthhack.com.au");

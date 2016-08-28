@@ -353,7 +353,7 @@ footer {
 		height: 79px;
 		width: auto;
 	}
-	#team_photo {
+	#site_photo {
 		float: right;
 		width: 300px;
 		margin-left: 20px;
@@ -401,6 +401,13 @@ footer {
 	textarea {
 		color: black;
 	}
+	header #header_message h3 {
+		margin-bottom: 0
+	}
+	#editSiteButton {
+		color: black;
+		font-size: 30px;
+	}
 
 	.fader {
 		width: 100%;
@@ -412,9 +419,22 @@ footer {
 	}
 	.form {
 		width: 50%;
-		height: 70%;
+		min-height: 50%;
+		padding: 10px;
 		margin: 50px auto;
 		background-color: white;
+
+
+		#close-form {
+			position: absolute;
+			right: 26%;
+			top: 60px;
+			color: indianred;
+			cursor: pointer;
+		}
+		#form-id, #form-site, #form-lat, #form-lng, #form-placeId {
+			display: none;
+		}
 		h1 {
 			padding-top: 10px;
 			text-align: center;
@@ -439,6 +459,8 @@ footer {
 			width: 100%;
 		}
 		#friend-delete {
+			background: indianred;
+			color: white;
 			float: right;
 		}
 		label {

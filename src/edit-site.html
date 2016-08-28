@@ -44,8 +44,9 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<h1>HealthHack Site</h1>
-				<textarea id="venue">Venue Name</textarea>
-				<textarea id="venue_address">Venue Address</textarea>
+				<h2>Venue Name</h2>
+				<h3>Venue Address</h3>
+				<button id="editSiteButton" onclick="editSite()">Edit this HealthHack site</button>
 			</div>
 		</div>
 	</div>
@@ -64,15 +65,15 @@
 
 				<div>
 					<img id="venue_image" src="/images/placeholder.jpg">
-					<div id="venue_description"><textarea>Enter a description here</textarea></div>
+					<div id="venue_description"><p>Enter a description here</p></div>
 				</div>
 			</div>
 
 
-			<div id="team" class="row col-xs-12">
-				<h1>Team</h1>
-				<img id="team_photo" src="/images/placeholder.jpg">
-				<div id="team_description"><textarea>Team Description goes here.</textarea></div>
+			<div id="site_info" class="row col-xs-12">
+				<h1 id="site_info_title">Site Title Here</h1>
+				<img id="site_photo" src="/images/placeholder.jpg">
+				<div id="site_description"><p>Site Description goes here.</p></div>
 			</div>
 
 		</div>
@@ -208,12 +209,78 @@
 		$("#venue_logo").attr("src", data.venue_logo);
 		$("#venue_image").attr("src", data.venue_image);
 		$("#venue_description").html(data.venue_description);
-		$("#team_photo").attr("src", data.team_photo);
-		$("#team_description").html(data.team_description);
+		$("#site_info_title").text(data.site_info_title);
+		$("#site_photo").attr("src", data.site_photo);
+		$("#site_description").html(data.site_description);
 		$("#address").html(data.venue+'<br>'+data.address);
 		$("#contact-email").attr("href", "mailto:"+data.site.toLowerCase()+"@healthhack.com.au")
 				.html(data.site.toLowerCase()+"@healthhack.com.au");
 	});
+
+
+	function editSite() {
+		var form = d3.select("body").append("div").classed("fader", true).on("click",function(){
+			d3.select(".fader").remove();
+		}).append("div").on("click",function(){
+			d3.event.stopPropagation();
+		}).classed("form", true);
+		form.append("i").classed("fa fa-close fa-2x", true).attr("id", "close-form").on("click",function(){d3.select(".fader").remove();});
+		var header = form.append("div").append("h1").text("Edit site details");
+
+		console.log(data);
+		var table = form.append("table");
+
+		Object.keys(data).forEach(function(key){
+			var row = table.append("tr").attr("id", "form-"+key);
+
+			var title = row.append("td").text(key);
+			var input = row.append("td");
+				input.append("textarea").attr({
+				required: true,
+				type: "text",
+				name: key
+			}).text(data[key]);
+
+
+			if(key === 'venue_logo' || key === 'venue_image' || key === 'site_photo') {
+				buildImage(key, input.html(""), data[key]);
+			}
+		});
+
+		var row = table.append("tr");
+		row.append("td").text("Save");
+		row.append("td").append("input").attr({
+			id: "form-submit",
+			type: "submit"
+		});
+
+	}
+
+
+
+	function buildImage(key, div, src){
+		div.append("input").attr({
+			id: "hidden-image-src-"+key,
+			name: key,
+			type: "hidden"
+		});
+		if(src) {
+			div.append("img").attr({
+				src: src
+			});
+			$("#hidden-image-src-"+key).val(src);
+		}
+		div.append("input").attr({
+			id: "image-upload-"+key,
+			type: "file",
+			name: "logo",
+			accept: "image/*"
+		});
+	}
+
+
+
+
 
 
 	function initMap() {
@@ -291,13 +358,6 @@
 		});
 	});
 
-	$("#venue").on("change", updateAddress);
-	$("#venue_address").on("change", updateAddress);
-
-	$("#venue_description textarea");
-	$("#team_description textarea");
-
-
 	var sponsor = d3.select("#list-of-friends").append("div").classed("friend-block fb-box", true);
 	sponsor.append("img").attr("src", "/images/placeholder.jpg");
 	sponsor.append("h2").text("Click me to add a sponsor");
@@ -332,7 +392,7 @@
 		}).append("div").on("click",function(){
 			d3.event.stopPropagation();
 		}).classed("form", true);
-
+		form.append("i").classed("fa fa-close fa-2x", true).attr("id", "close-form").on("click",function(){d3.select(".fader").remove();});
 		var header = form.append("div").append("h1").text("Add a new sponsor");
 
 		if(d.name) {
@@ -376,12 +436,10 @@
 
 		if(d.logo) {
 			image.append("img").attr({
-				src: d.logo,
-				name: "logo"
+				src: d.logo
 			});
 			$("#hidden-image-src").val(d.logo);
 		}
-
 
 		image.append("input").attr({
 			id: "image-upload",
@@ -462,12 +520,6 @@
 		});
 
 
-	}
-
-	function updateAddress(){
-		var venue = $("#venue").val(),
-			address = $("#venue_address").val();
-		$("#address").html(venue+'<br>'+address);
 	}
 </script>
 
