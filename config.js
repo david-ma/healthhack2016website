@@ -162,7 +162,7 @@ exports.config = {
 		},
 		"site": function(res, req, db, type){
 			if(sites.hasOwnProperty(type.toLowerCase())) {
-				var query = "select * from `healthhack_sites` where site='"+type+"' ORDER BY 1 ASC limit 1;";
+				var query = "select * from `healthhack_sites` where site='"+type+"' ORDER BY 1 DESC limit 1;";
 				db.query(query, function(error, results){
 					if(!error){
 						res.writeHead(200);
