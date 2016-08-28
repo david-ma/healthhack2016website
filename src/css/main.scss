@@ -343,7 +343,8 @@ footer {
 		text-align: left;
 	}
 	#venue_image {
-		width: 300px;
+		max-width: 300px;
+		max-height: 300px;
 		float: left;
 		margin-right: 20px;
 	}
@@ -355,7 +356,8 @@ footer {
 	}
 	#site_photo {
 		float: right;
-		width: 300px;
+		max-width: 300px;
+		max-height: 300px;
 		margin-left: 20px;
 	}
 	#map {
