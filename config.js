@@ -29,23 +29,7 @@ exports.config = {
 
 	services: {
 		"upload_sponsor": function(res, req, db, type){
-			// var form = new formidable.IncomingForm();
-            //
-			// form.parse(req, function(err, fields, files) {
-			// 	res.writeHead(200, {'content-type': 'text/plain'});
-			// 	res.write('received upload:\n\n');
-			// 	res.end(util.inspect({fields: fields, files: files}));
-			// });
-            //
-			// return;
-            //
-            //
-
-
-			console.log("Woo... uploading sponsor...");
-			// console.log(type);
-			// console.log(req);
-
+			console.log("Woo! Uploading sponsor...");
 
 			// create an incoming form object
 			var form = new formidable.IncomingForm();
@@ -54,28 +38,57 @@ exports.config = {
 			form.multiples = true;
 
 			// store all uploads in the /uploads directory
-			form.uploadDir = path.join(__dirname, '/uploads');
-
-			// every time a file has been uploaded successfully,
-			// rename it to it's orignal name
-			form.on('file', function(field, file) {
-				fs.rename(file.path, path.join(form.uploadDir, file.name));
-			});
+			form.uploadDir = path.join(__dirname, '/tmp');
 
 			// log any errors that occur
 			form.on('error', function(err) {
 				console.log('An error has occured: \n' + err);
 			});
 
-
 			// parse the incoming request containing the form data
 			form.parse(req, function(err, fields, files) {
-				res.writeHead(200, {'content-type': 'text/plain'});
-				res.write('Success!\n');
-				res.write('Received upload:\n\n');
-				res.end(util.inspect({fields: fields, files: files}));
-			});
 
+                // Protected by a password... change your password here
+                // We should also probably rate limit this shit
+				if(fields.password === "password") {
+					var logo_src = fields.logo,
+						auth = fields.auth === "confirmed" ? 1 : 0;
+
+					if(files.logo && files.logo.name !== "") {
+						logo_src = '/images/uploads/'+files.logo.name;
+						fs.createReadStream(files.logo.path).pipe(fs.createWriteStream(path.join(__dirname, '/public'+logo_src)));
+						fs.rename(files.logo.path, path.join(form.uploadDir, files.logo.name));
+					}
+
+					var query = "INSERT INTO `healthhack_sponsors` (`id`, `name`, `logo`, `link`, `text`, `site`, `auth`) VALUES (NULL, ?, ?, ?, ?, ?, ?);";
+
+					db.queryVariables(query, [fields.name, logo_src, fields.link, fields.text, fields.site, auth], function(err, results) {
+						if(!err) {
+							if (fields.password === "debug") {
+								res.writeHead(200, {'content-type': 'text/plain'});
+								res.write('Success!\n');
+								res.write('Received upload:\n\n');
+								res.write(util.inspect({fields: fields, files: files}));
+								res.write('\n\nDatabase results:\n');
+								res.write(JSON.stringify(results));
+								res.end();
+							} else {
+								console.log(fields);
+								var url = fields.current_url;
+								var body ='<meta http-equiv="refresh" content="0; url='+url+'">';
+								res.writeHead(302, {"Location": url});
+								res.end(body);
+							}
+						} else {
+							res.writeHead(500, {'content-type': 'text/plain'});
+							res.end(JSON.stringify(err));
+						}
+					});
+				} else {
+					res.writeHead(403, {'content-type': 'text/plain'});
+					res.end("Wrong Password");
+				}
+			});
 
 		},
 		"site": function(res, req, db, type){
@@ -97,7 +110,8 @@ exports.config = {
 		},
 		"sponsors": function(res, req, db, type){
 			if(sites.hasOwnProperty(type.toLowerCase())) {
-				var query = "select * from `healthhack_sponsors` where site = 'national' or site = '"+type+"';";
+				// var query = "select * from `healthhack_sponsors` where site = 'national' or site = '"+type+"';";
+				var query = "select max.id, max.name, logo, link, text, site, auth from (select MAX(id) as id, name from `healthhack_sponsors` where site='national' or site='"+type+"' group by name) as max, `healthhack_sponsors` where `healthhack_sponsors`.id = max.id;";
 				db.query(query, function(error, results){
 					if(!error){
 						res.writeHead(200);

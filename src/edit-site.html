@@ -21,7 +21,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-2">
-				<a href="#page-top"><img src="/images/HH_Logo.svg" class="navlogo" id="hh_logo" alt="HealthHack"></a>
+				<a href="/"><img src="/images/HH_Logo.svg" class="navlogo" id="hh_logo" alt="HealthHack"></a>
 			</div>
 			<div class="col-xs-10 nav-right">
 				<ul id="navlist">
@@ -96,7 +96,7 @@
 	<div class="row">
 
 		<div id="sponsors" class="col-xs-12">
-			<h1>Sponsors</h1>
+			<h1>Sponsors - Click them to edit</h1>
 			<div id="list-of-friends">
 				<div class="friend-block fb-box" id="be-our-friend">
 					<img class="friend-logo" src="/images/sponsors/your_logo_here.png">
@@ -271,9 +271,7 @@
 			var box = d3.select("#list-of-friends");
 
 			sponsors.forEach(function(sponsor){
-				var block = box.append('a').attr({
-					href: sponsor.link
-				}).append("div").attr({
+				var block = box.append("div").attr({
 					class: "friend-block fb-box"
 				}).datum(sponsor).on('click', uploadSponsor);
 
@@ -292,11 +290,8 @@
 		});
 	});
 
-
-
 	$("#venue").on("change", updateAddress);
 	$("#venue_address").on("change", updateAddress);
-
 
 	$("#venue_description textarea");
 	$("#team_description textarea");
@@ -310,7 +305,24 @@
 
 	sponsor.on('click', uploadSponsor);
 
+	function checkForm(){
+		if ($("#hidden-image-src").val() || $("#image-upload").val()) {
+			return true;
+		} else {
+			alert("Please add a logo");
+			return false;
+		}
+	}
+
 	function uploadSponsor(d){
+		d = d || {
+			name: "",
+			logo: "",
+			site: "",
+			link: "",
+			auth: 0,
+			text: ""
+		};
 
 		console.log(d);
 
@@ -320,8 +332,15 @@
 			d3.event.stopPropagation();
 		}).classed("form", true);
 
-		form.append("div").append("h1").text("Add a new sponsor");
+		var header = form.append("div").append("h1").text("Add a new sponsor");
+
+		if(d.name) {
+			header.text("Edit sponsor: "+d.name);
+		}
+
+
 		var table = form.append("form").attr({
+					onsubmit: "return checkForm(this);",
 					action: "upload_sponsor",
 					enctype: "multipart/form-data",
 					method: "post"
@@ -330,30 +349,69 @@
 
 		row.append("td").text("Name");
 		row.append("td").append("input").attr({
+			id: "friend-name",
 			required: true,
 			type: "text",
 			name: "name"
 		});
+		$("#friend-name").val(d.name);
+
+		row.append("input").attr({
+			id: "current_url",
+			name: "current_url",
+			type: "hidden"
+		});
+		$("#current_url").val(window.location.href);
 
 		row = table.append("tr");
 		row.append("td").text("Logo");
-		row.append("td").append("input").attr({
-			required: true,
+		var image = row.append("td");
+
+		image.append("input").attr({
+			id: "hidden-image-src",
+			name: "logo",
+			type: "hidden"
+		});
+
+		if(d.logo) {
+			image.append("img").attr({
+				src: d.logo,
+				name: "logo"
+			});
+			$("#hidden-image-src").val(d.logo);
+		}
+
+
+		image.append("input").attr({
+			id: "image-upload",
 			type: "file",
 			name: "logo",
 			accept: "image/*"
 		});
 
 		row = table.append("tr");
-		row.append("td").text("Description");
-		row.append("td").append("input").attr({
+		row.append("td").text("Description (try to stay under 140 chars please)");
+		row.append("td").append("textarea").attr({
+			id: 'friend-text',
 			required: true,
 			type: "text",
 			name: "text"
 		});
+		$("#friend-text").val(d.text);
 
 		row = table.append("tr");
-		row.append("td").text("site");
+		row.append("td").text("Website / Link / Call to Action");
+		row.append("td").append("input").attr({
+			id: 'friend-link',
+			required: true,
+			type: "text",
+			name: "link"
+		});
+		$("#friend-link").val(d.link);
+
+
+		row = table.append("tr");
+		row.append("td").text("Which site page should they be shown on?");
 		row.append("td").html('<input type="radio" name="site" value="national" required> National<br>' +
 				'<input type="radio" name="site" value="sydney" required> Sydney<br>' +
 				'<input type="radio" name="site" value="melbourne" required> Melbourne<br>' +
@@ -361,11 +419,34 @@
 				'<input type="radio" name="site" value="canberra" required> Canberra<br>' +
 				'<input type="radio" name="site" value="perth" required> Perth');
 
+		$("input[type='radio'][value='"+d.site+"']").attr("checked", true);
+
+		row = table.append("tr");
+		row.append("td").text("Are they confirmed, can we show on the page?");
+		row.append("td").html('<input type="radio" name="auth" value="confirmed" required> Confirmed<br>' +
+				'<input type="radio" name="auth" value="unconfirmed" required> Unconfirmed');
+
+		if(d.auth) {
+			$("input[type='radio'][value='confirmed']").attr("checked", true);
+		} else {
+			$("input[type='radio'][value='unconfirmed']").attr("checked", true);
+		}
+
+		row = table.append("tr");
+		row.append("td").text("Password");
+		row.append("td").append("input").attr({
+			required: true,
+			type: "text",
+			name: "password"
+		});
+
 		row = table.append("tr");
 		row.append("td").text("Submit")
 		row.append("td").append("input").attr({
 			type: "submit"
 		});
+
+
 	}
 
 	function updateAddress(){
