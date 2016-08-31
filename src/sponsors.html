@@ -11,9 +11,7 @@
 	<link rel="stylesheet" href="/css/main.css">
 	<script src="/js/vendor.min.js"></script>
 	<script src="/js/scripts.min.js"></script>
-	<link rel="import" href="challenge-template.html">
-	<link rel="import" href="challenge-bootstrapper.html">
-	<link rel="import" href="hh-challenges.html">
+  <link rel="import" href="hh-sponsors.html" />
 </head>
 <body id="page-top">
 	<nav id="nav">
@@ -43,8 +41,7 @@
 		<div class="container" id="header_message">
 			<div class="row">
 				<div class="col-xs-12">
-					<h1>Previous Challenges</h1>
-					<h2>View previous years problems and submit your own</h2>
+					<h1>Sponsors</h1>
 				</div>
 			</div>
 		</div>
@@ -53,8 +50,8 @@
 	<div class="container page">
 
 		<section id="main-body" style="display:flex">
-			<div class="col-md-7" style="margin:auto;padding-top:20px">
-				<hh-challenges></hh-challenges>
+			<div style="margin:auto">
+        <hh-sponsors></hh-sponsors>
 			</div>
 		</section>
 
@@ -174,9 +171,6 @@
 
 	ga('create', 'UA-82263021-1', 'auto');
 	ga('send', 'pageview');
-</script>
-<script>
-	stampChallenges(2015);
 </script>
 </body>
 </html>
