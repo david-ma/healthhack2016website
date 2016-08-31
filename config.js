@@ -16,6 +16,7 @@ var sites = {
 exports.config = {
 	domains: ["healthhack.david-ma.net", "healthhack.com.au", "www.healthhack.com.au", "test.healthhack.com.au", "2016.healthhack.com.au"],
 	pages: {
+		"challenges": "/previouschallenges.html",
 		"melbourne": "/site.html",
 		"sydney": "/site.html",
 		"canberra": "/site.html",
@@ -27,8 +28,6 @@ exports.config = {
 		"edit-brisbane": "/edit-site.html",
 		"edit-perth": "/edit-site.html"
 	},
-
-
 	services: {
 		"edit_site": function(res, req, db, type){
 			console.log("Ok, Editing Site...");
