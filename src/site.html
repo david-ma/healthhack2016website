@@ -282,8 +282,7 @@
 			var box = d3.select("#list-of-friends");
 
 			sponsors.sort(function(a,b){
-				console.log(a);
-				return 0;
+				return b.priority - a.priority;
 			});
 
 			sponsors.forEach(function(sponsor){
