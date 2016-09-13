@@ -20,6 +20,15 @@
         width:auto;
         height:auto;
       }
+      .challenge-demo-link {
+        background:grey;
+        border: none;
+        font-weight:400;
+      }
+      button.challenge-detail {
+        background:#08b3a6;
+        border:none;
+      }
     </style>
     <div class="flex-form">
       <div class="form-group">
@@ -52,7 +61,7 @@
         </div>
         <div>
           <button type="button" class="btn btn-primary challenge-demo-link">Working Demo</button>
-          <button type="button" onclick="this.closest('.challenge-item').querySelector('iron-collapse').toggle();" class="btn btn-primary">Details</button>
+          <button type="button" onclick="this.closest('.challenge-item').querySelector('iron-collapse').toggle();" class="btn btn-primary challenge-detail">Details</button>
         </div>
       </div>
     </template>

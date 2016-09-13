@@ -46,12 +46,15 @@
 			</div>
 		</div>
 	</header>
-
+	<div style="display:none">
+		<div id="list-template">
+			<img src="/images/placeholder.png"/>
+		</div>
+	</div>
 	<div class="container page">
 
 		<section id="main-body" style="display:flex">
 			<div style="margin:auto">
-        <hh-sponsors></hh-sponsors>
 			</div>
 		</section>
 
@@ -171,6 +174,27 @@
 
 	ga('create', 'UA-82263021-1', 'auto');
 	ga('send', 'pageview');
+</script>
+<script>
+
+var options = {
+  valueNames: [
+    'CATEGORY', 'USER_ID', 'TICKET_ID',
+    'ISSUE', 'TIME_STAMP',
+    {
+      name: 'os_img', attr: 'src'
+    },
+    {
+      name: "STATUS", attr: 'status'
+    }
+  ],
+  item: 'list-template'
+};
+fetch('/sponsors/')
+.then( function(resp) { return resp.json() })
+.then(function(sponsors) {
+	var sponsorsList = new List('sponsors-list', options, sponsors);
+})
 </script>
 </body>
 </html>
