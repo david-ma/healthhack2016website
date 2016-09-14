@@ -9,6 +9,7 @@
 
 	<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
 	<script src="/js/vendor.min.js"></script>
 	<script src="/js/scripts.min.js"></script>
   <link rel="import" href="hh-sponsors.html" />
@@ -27,6 +28,7 @@
 						<li><a class="page-scroll" href="#sites">Sites</a></li>
 						<li><a class="page-scroll" href="#mc_embed_signup">Contact</a></li>
 						<li><a class="page-scroll" href="/faq.html">FAQ</a></li>
+						<li><a class="page-scroll" href="/challenges">Challenges</a></li>
             <li><a class="page-scroll" href="http://2015.healthhack.com.au">2015</a></li>
 					</ul>
 				</div>
@@ -46,15 +48,28 @@
 			</div>
 		</div>
 	</header>
+
 	<div style="display:none">
-		<div id="list-template">
+		<div id="list-template" class="sponsor-template">
 			<img src="/images/placeholder.png"/>
+			<p>
+
+			</p>
 		</div>
 	</div>
+
 	<div class="container page">
 
 		<section id="main-body" style="display:flex">
 			<div style="margin:auto">
+				<h2>National</h2>
+				<div class="sponsor-container" id="national-container">
+
+				</div>
+				<h2>Local</h2>
+				<div class="sponsor-container" id="local-container">
+
+				</div>
 			</div>
 		</section>
 
@@ -190,10 +205,21 @@ var options = {
   ],
   item: 'list-template'
 };
-fetch('/sponsors/')
+fetch('/data/sponsors.json')
 .then( function(resp) { return resp.json() })
 .then(function(sponsors) {
-	var sponsorsList = new List('sponsors-list', options, sponsors);
+
+
+	sponsors.forEach(function(sponsor) {
+		var sponsorTemplate = document.querySelector('#list-template');
+		var sponsorInst = $.clone(sponsorTemplate);
+		var nationalContainer = document.querySelector('#nation-container');
+		sponsorInst.querySelector('img').src = sponsor.logo;
+		sponsorInst.querySelector('p').innerHTML = sponsor.text;
+		console.log(nationalContainer);
+		nationalContainer.appendChild(sponsorInst);
+	})
+
 })
 </script>
 </body>

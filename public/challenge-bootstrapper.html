@@ -1,2 +1,2 @@
 <link async rel="import" href="/async-js-imports.html">
-<script>window.stampChallenges=function(e){fetch("data/challenges.json").then(function(e){return e.json()}).then(function(n){current=(new Date).getFullYear()==e,console.log(n),document.querySelector("hh-challenges").challenges=n}.bind(this))}</script>
+<script>window.stampChallenges=function(e){fetch("data/challenges.json").then(function(e){return e.json()}).then(function(n){current=(new Date).getFullYear()==e,console.log(n),current?document.querySelector("hh-challenges").challenges=n.filter(function(n){return n.year==e}):document.querySelector("hh-challenges").challenges=n.filter(function(n){return n.year<=e})}.bind(this))}</script>

@@ -109,7 +109,7 @@ header {
 			margin-bottom: 30px;
 		}
 	}
-	
+
 	.large-link-button, .large-link-button:visited {
 		color: white;
 		background-color: #08b3a6;
@@ -486,5 +486,19 @@ footer {
 		h3 {
 			color: red;
 		}
+	}
+}
+
+.sponsor-container {
+	display:flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+}
+.sponsor-template {
+	width:300px;
+	height:300px;
+	img {
+		width:100%;
+		height:auto;
 	}
 }

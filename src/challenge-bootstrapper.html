@@ -6,7 +6,16 @@
     .then(function(challenges) {
       current = (new Date).getFullYear() == year;
       console.log(challenges);
-      document.querySelector('hh-challenges').challenges = challenges;
+      if(current) {
+        document.querySelector('hh-challenges').challenges = challenges.filter(function(challenge) {
+          return challenge.year == year;
+        })
+      } else {
+          document.querySelector('hh-challenges').challenges = challenges.filter(function(challenge) {
+            return challenge.year <= year;
+          })
+      }
+
     }.bind(this));
   }
 </script>

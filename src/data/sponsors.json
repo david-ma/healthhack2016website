@@ -1,24 +1,16 @@
-{
-  "community": [
-
-  ],
-  "national_gold": [
-    {"img": "/images/HH_Logo.svg", "spiel": "lorem ipsum"},
-    {"img": "/images/HH_Logo.svg", "spiel": "lorem ipsum"},
-    {"img": "/images/HH_Logo.svg", "spiel": "lorem ipsum"},
-    {"img": "/images/HH_Logo.svg", "spiel": "lorem ipsum"},
-    {"img": "/images/HH_Logo.svg", "spiel": "lorem ipsum"}
-  ],
-  "national_silver": [
-
-  ],
-  "primary": [
-
-  ],
-  "local_gold": [
-
-  ],
-  "local_silver": [
-
-  ]
-}
+[{
+  "logo": "/images/HH_Logo.svg",
+  "text": "lorem ipsum"
+}, {
+  "logo": "/images/HH_Logo.svg",
+  "text": "lorem ipsum"
+}, {
+  "logo": "/images/HH_Logo.svg",
+  "text": "lorem ipsum"
+}, {
+  "logo": "/images/HH_Logo.svg",
+  "text": "lorem ipsum"
+}, {
+  "logo": "/images/HH_Logo.svg",
+  "text": "lorem ipsum"
+}]
