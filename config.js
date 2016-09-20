@@ -3,7 +3,7 @@ const formidable = require('formidable');
 const path = require('path');
 const util = require('util');
 
-const password = "password";
+const password = "whiterabbit";
 
 var sites = {
 	"sydney": true,
