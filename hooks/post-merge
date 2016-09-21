@@ -1,0 +1,7 @@
+#!/usr/bin/env python
+
+import time
+
+print("Pulling from Google Sheets...")
+time.sleep(1)
+print("Successfully pulled")
