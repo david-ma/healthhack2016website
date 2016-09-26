@@ -7,16 +7,7 @@
     .then( function(resp) { return resp.json() })
     .then(function(challenges) {
       current = (new Date).getFullYear() == year;
-      if(current) {
-        document.querySelector('hh-challenges').challenges = challenges.filter(function(challenge) {
-          return challenge.year == year;
-        })
-      } else {
-          document.querySelector('hh-challenges').challenges = challenges.filter(function(challenge) {
-            return challenge.year <= year;
-          })
-      }
-
+      document.querySelector('hh-challenges').challenges = challenges;
     }.bind(this));
   }
 </script>
