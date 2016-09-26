@@ -64,11 +64,20 @@
 		<section id="main-body" style="display:flex">
 			<div style="margin:auto">
 				<h2>National</h2>
-				<div class="sponsor-container" id="national-container">
+				<div class="sponsor-container" id="national-primary-container">
+
+				</div>
+				<div class="sponsor-container" id="national-gold-container">
+
+				</div>
+				<div class="sponsor-container" id="national-silver-container">
 
 				</div>
 				<h2>Local</h2>
-				<div class="sponsor-container" id="local-container">
+				<div class="sponsor-container" id="local-silver-container">
+
+				</div>
+				<div class="sponsor-container" id="local-community-container">
 
 				</div>
 			</div>
@@ -212,13 +221,13 @@ fetch('/data/sponsors.json')
 
 
 	sponsors.forEach(function(sponsor) {
+		var container = document.querySelector('#'+sponsor.sponsor+'-'+sponsor.level+'-container');
 		var sponsorTemplate = document.querySelector('#list-template');
 		var sponsorInst = $.clone(sponsorTemplate);
-		var nationalContainer = document.querySelector('#nation-container');
+		var nationalContainer = document.querySelector('#national-container');
 		sponsorInst.querySelector('img').src = sponsor.logo;
 		sponsorInst.querySelector('p').innerHTML = sponsor.text;
-		console.log(nationalContainer);
-		nationalContainer.appendChild(sponsorInst);
+		container.appendChild(sponsorInst);
 	})
 
 })

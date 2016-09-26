@@ -13,6 +13,10 @@
         flex-direction:row;
         justify-content:space-between;
       }
+      img {
+        max-width: 50%;
+        max-height:50%;
+      }
       .challenge-img {
         max-width:200px;
         max-height:200px;
@@ -47,7 +51,6 @@
         <input class="form-control search-input" type="text" placeholder="Search" value="{{filterVal::input}}">
       </div>
     </div>
-
     <template is="dom-repeat" items="[[challenges]]" filter="{{_filter(filterVal)}}">
       <div class="challenge-item" style="margin:auto;padding:10px;width:100%;min-height:150px;justify-content:space-between;border-top:dashed;border-color:grey;border-width:thin;display:flex;flex-direction:column">
         <div>
