@@ -1,8 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env bash
 
-import time
-
-print("Pulling from Google Sheets...")
+echo pulling updated challenges from sheetsu
 curl https://sheetsu.com/apis/v1.0/8f11913607ba -o src/data/challenges-current.json
-time.sleep(1)
-print("Successfully pulled")

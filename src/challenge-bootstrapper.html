@@ -7,6 +7,12 @@
     .then( function(resp) { return resp.json() })
     .then(function(challenges) {
       current = (new Date).getFullYear() == year;
+      if(current) {
+        challenges.forEach(function(challenge) {
+          challenge.year = year;
+          challenge.img = 'images/sponsors/'+challenge.image;
+        })
+      }
       document.querySelector('hh-challenges').challenges = challenges;
     }.bind(this));
   }
