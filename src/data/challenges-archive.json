@@ -156,7 +156,7 @@
 },
 {
     "title": "Genome Browser loader",
-    "city": "Melbourne",
+    "location": "Melbourne",
     "year": "2015",
     "organisation": "Bio21",
     "img": "http://www.aips.net.au/wp-content/uploads/2011/06/Bio21-Institute-Logo-333x570.jpg",
@@ -170,7 +170,7 @@
     "teamLink": ""
 }, {
     "title": "Explore your Genome and Epigenome in an Immersive Virtual Space",
-    "city": "Sydney",
+    "location": "Sydney",
     "year": "2015",
     "organisation": "Garvan Institute",
     "img": "/images/sponsors/garvan.png",
@@ -184,7 +184,7 @@
     "teamLink": ""
 }, {
     "title": "Arthritis Monitoring App",
-    "city": "Sydney",
+    "location": "Sydney",
     "year": "2015",
     "organisation": "Fishburners",
     "img": "/images/sponsors/fishburners.png",
@@ -198,7 +198,7 @@
     "teamLink": ""
 }, {
     "title": "Automated tuning with control samples",
-    "city": "Sydney",
+    "location": "Sydney",
     "year": "2015",
     "organisation": "Garvan Institute",
     "img": "/images/sponsors/garvan.png",
@@ -212,7 +212,7 @@
     "teamLink": ""
 }, {
     "title": "SenseS - A sensor for stress",
-    "city": "Sydney",
+    "location": "Sydney",
     "year": "2015",
     "organisation": "ThoughtWorks",
     "img": "/images/sponsors/thoughtworks.png",
@@ -226,7 +226,7 @@
     "teamLink": ""
 }, {
     "title": "Mining tool for discovering commonalities in gene expression data of independent experiments.",
-    "city": "Sydney",
+    "location": "Sydney",
     "year": "2015",
     "organisation": "Garvan Institute",
     "img": "/images/sponsors/garvan.png",
@@ -240,7 +240,7 @@
     "teamLink": ""
 }, {
     "title": "Best way to display fracture risk for the general public and for doctors",
-    "city": "Sydney",
+    "location": "Sydney",
     "year": "2015",
     "organisation": "Garvan Institute",
     "img": "/images/sponsors/garvan.png",
@@ -254,7 +254,7 @@
     "teamLink": ""
 }, {
     "title": "Feedback mechanism for young diabetes patients to promote healthy balance of activity and diet",
-    "city": "Sydney",
+    "location": "Sydney",
     "year": "2015",
     "organisation": "ThoughtWorks \u0026 UTS",
     "img": "/images/sponsors/thoughtworks.png",
@@ -268,7 +268,7 @@
     "teamLink": ""
 }, {
     "title": "Creating a framework to build interactive web experiences around scientific illustration \u0026 animation",
-    "city": "Sydney",
+    "location": "Sydney",
     "year": "2015",
     "organisation": "Garvan Institute",
     "img": "/images/sponsors/garvan.png",
@@ -282,7 +282,7 @@
     "teamLink": ""
 }, {
     "title": "Trees to display changing treatments",
-    "city": "Melbourne",
+    "location": "Melbourne",
     "year": "2015",
     "organisation": "Department of Epidemiology and Preventive Medicine, Monash University",
     "img": "http://www.ums.com.au/wp-content/uploads/2012/04/monash-university-logo-300x93.png",
@@ -296,7 +296,7 @@
     "teamLink": ""
 }, {
     "title": "Searchable funnel plots for performance comparisons",
-    "city": "Melbourne",
+    "location": "Melbourne",
     "year": "2015",
     "organisation": "Department of Epidemiology and Preventive Medicine, Monash University",
     "img": "http://www.ums.com.au/wp-content/uploads/2012/04/monash-university-logo-300x93.png",
@@ -310,7 +310,7 @@
     "teamLink": ""
 }, {
     "title": "A dashboard for building clinical laboratory networks",
-    "city": "Melbourne",
+    "location": "Melbourne",
     "year": "2015",
     "organisation": "Human Variome Project",
     "img": "https://upload.wikimedia.org/wikipedia/en/5/50/Hvplogo.png",
@@ -324,7 +324,7 @@
     "teamLink": ""
 }, {
     "title": "connectED:  Creating opportunities to teach and learn in the health care setting",
-    "city": "Melbourne",
+    "location": "Melbourne",
     "year": "2015",
     "organisation": "Eastern Health Clinical School ",
     "img": "http://www.med.monash.edu.au/assets/images/med-main-images/monash-med-logo.jpg",
@@ -338,7 +338,7 @@
     "teamLink": ""
 }, {
     "title": "Serious games teaching emotion recognition for Autism Spectrum Disorders, with biofeedback and Unity game engine",
-    "city": "Perth",
+    "location": "Perth",
     "year": "2015",
     "organisation": "Curtin University",
     "img": "http://www.healthhack.com.au/images/sponsors/curtin.png",
@@ -352,7 +352,7 @@
     "teamLink": ""
 }, {
     "title": "Visualization of sequential study design properties – saving lives and costs in first-in-human clinical trials.",
-    "city": "Melbourne",
+    "location": "Melbourne",
     "year": "2015",
     "organisation": "Murdoch Childrens Research Institute",
     "img": "https://www.mcri.edu.au/sites/default/files/media/images/logos/mcri_stacked_cmyk_transparent.png",
@@ -366,7 +366,7 @@
     "teamLink": ""
 }, {
     "title": "Scan your skin to manage your sun exposure",
-    "city": "Perth",
+    "location": "Perth",
     "year": "2015",
     "organisation": "Telethon Kids Institute",
     "img": "http://telethonkids.org.au/images/v2015/logo.png",
@@ -380,7 +380,7 @@
     "teamLink": ""
 }, {
     "title": "Navigating the home-care service ecosystem",
-    "city": "Perth",
+    "location": "Perth",
     "year": "2015",
     "organisation": "Sliverchain",
     "img": "https://www.silverchain.org.au/++theme++silverchain.plonetheme/static/images/logo-silverchain.svg",
@@ -394,7 +394,7 @@
     "teamLink": ""
 }, {
     "title": "Improving diagnosis to better manage antimicrobial resistance",
-    "city": "Perth",
+    "location": "Perth",
     "year": "2015",
     "organisation": "PathWest, Department of Health WA",
     "img": "http://collections.ala.org.au/data/institution/PathWest%20WACC%20300%20px.jpg",
@@ -408,7 +408,7 @@
     "teamLink": ""
 }, {
     "title": "Visualising the complex home-care services ecosystem",
-    "city": "Perth",
+    "location": "Perth",
     "year": "2015",
     "organisation": "Sliverchain",
     "img": "https://www.silverchain.org.au/++theme++silverchain.plonetheme/static/images/logo-silverchain.svg",
@@ -422,7 +422,7 @@
     "teamLink": ""
 }, {
     "title": "Exploring hospitalisation data",
-    "city": "Perth",
+    "location": "Perth",
     "year": "2015",
     "organisation": "Telethon Kids Institute",
     "img": "http://telethonkids.org.au/images/v2015/logo.png",
@@ -436,7 +436,7 @@
     "teamLink": ""
 }, {
     "title": "Clinical exam rotation rosters",
-    "city": "Melbourne",
+    "location": "Melbourne",
     "year": "2015",
     "organisation": "Royal Australian College of General Practitioners",
     "img": "http://www.racgp.org.au/images/racgp/ribbon/ribbon-logo.png",
@@ -450,7 +450,7 @@
     "teamLink": ""
 }, {
     "title": "Identify and visualise the cost of treating cancer",
-    "city": "Brisbane",
+    "location": "Brisbane",
     "year": "2015",
     "organisation": "Central Integrated Regional Cancer Service",
     "img": "https://pbs.twimg.com/profile_images/462034997679882240/wTIMzEvq_400x400.jpeg",
@@ -464,7 +464,7 @@
     "teamLink": ""
 }, {
     "title": "Allergy and consumption related monitoring",
-    "city": "Brisbane",
+    "location": "Brisbane",
     "year": "2015",
     "organisation": "Dr Fabien Plisson",
     "img": "https://pbs.twimg.com/profile_images/535304396339286017/HFyodUKT_400x400.jpeg",
@@ -478,7 +478,7 @@
     "teamLink": ""
 }, {
     "title": "Cloud Computing Carpentry (CCC)",
-    "city": "Brisbane",
+    "location": "Brisbane",
     "year": "2015",
     "organisation": "Software Carpentry QLD",
     "img": "https://pbs.twimg.com/profile_images/574726524227559424/Jy7TrvbY_400x400.png",
@@ -492,7 +492,7 @@
     "teamLink": ""
 }, {
     "title": "Real-time pain management tool",
-    "city": "Brisbane",
+    "location": "Brisbane",
     "year": "2015",
     "organisation": "Institute for Molecular Bioscience",
     "img": "http://web-services.imb.uq.edu.au/images/IMB_logo_current.jpg",
@@ -506,7 +506,7 @@
     "teamLink": ""
 }, {
     "title": "Clever multi-view graphs",
-    "city": "Brisbane",
+    "location": "Brisbane",
     "year": "2015",
     "organisation": "Stemformatics, Australian Institute for Bioengineering and Nanotechnology",
     "img": "https://pbs.twimg.com/profile_images/526879267183800320/SslgLVwx.png",
@@ -520,7 +520,7 @@
     "teamLink": ""
 }, {
     "title": "YuGene Graph",
-    "city": "Brisbane",
+    "location": "Brisbane",
     "year": "2015",
     "organisation": "Stemformatics, Australian Institute for Bioengineering and Nanotechnology",
     "img": "https://pbs.twimg.com/profile_images/526879267183800320/SslgLVwx.png",
@@ -534,7 +534,7 @@
     "teamLink": ""
 }, {
     "title": "Molecular Dynamics Database (MDDB)",
-    "city": "Brisbane",
+    "location": "Brisbane",
     "year": "2015",
     "organisation": "UQ MD Group, School of Chemistry \u0026 Molecular Biosciences",
     "img": "http://compbio.biosci.uq.edu.au/mediawiki/upload/7/71/PsaA_docked_to_E-cadherin_in_simulation_cell.png",
@@ -548,7 +548,7 @@
     "teamLink": ""
 }, {
     "title": "3D annotation of Terrascale biomedical imaging data in a 2D web",
-    "city": "",
+    "location": "",
     "year": "",
     "organisation": "National Imaging Facility",
     "img": "",
@@ -562,7 +562,7 @@
     "teamLink": ""
 }, {
     "title": "Predicting falls from monitoring data",
-    "city": "Brisbane",
+    "location": "Brisbane",
     "year": "2015",
     "organisation": "LifeLink",
     "img": "https://pbs.twimg.com/profile_images/378800000742220454/eab856c2dc308a76f25211e368d8fd57.jpeg",
@@ -576,7 +576,7 @@
     "teamLink": ""
 }, {
     "title": "ThoughtWorks challenge",
-    "city": "Brisbane",
+    "location": "Brisbane",
     "year": "2015",
     "organisation": "ThoughtWorks, Brisbane",
     "img": "https://pbs.twimg.com/profile_images/459401977462407168/reORxIro.png",
@@ -590,7 +590,7 @@
     "teamLink": ""
 }, {
     "title": "Unsteadiness Detector",
-    "city": "Perth",
+    "location": "Perth",
     "year": "2015",
     "organisation": "Internet of Everything Community",
     "img": "",
@@ -604,7 +604,7 @@
     "teamLink": ""
 }, {
     "title": "Visualising risky teen drinking",
-    "city": "Perth",
+    "location": "Perth",
     "year": "2015",
     "organisation": "Curtin University",
     "img": "http://www.healthhack.com.au/images/sponsors/curtin.png",
@@ -618,7 +618,7 @@
     "teamLink": ""
 }, {
     "title": "Wheelchair controller",
-    "city": "Perth",
+    "location": "Perth",
     "year": "2015",
     "organisation": "Curtin University, Rocky Bay",
     "img": "http://www.healthhack.com.au/images/sponsors/curtin.png",
@@ -632,7 +632,7 @@
     "teamLink": ""
 }, {
     "title": "Mapping social relationships, alcohol and drug use and other risky behaviours.",
-    "city": "Melbourne",
+    "location": "Melbourne",
     "year": "2015",
     "organisation": "Turning Point",
     "img": "http://www.turningpoint.org.au/site/DefaultSite/skins/TurningPoint/images/turning-point-logo.png",
@@ -646,7 +646,7 @@
     "teamLink": ""
 }, {
     "title": "A Simple Online Clinical Notes Program",
-    "city": "Melbourne",
+    "location": "Melbourne",
     "year": "2015",
     "organisation": "Chiasma Health",
     "img": "http://chiasma.com.au/wp-content/uploads/2015/10/CH-logo_green-300x207.png",
@@ -660,7 +660,7 @@
     "teamLink": ""
 }, {
     "title": "3D annotation of Terrascale biomedical imaging data in a 2D web",
-    "city": "",
+    "location": "",
     "year": "",
     "organisation": "National Imaging Facility",
     "img": "",
@@ -674,7 +674,7 @@
     "teamLink": ""
 }, {
     "title": "An Integrated Quality control system (IQ system)",
-    "city": "Melbourne",
+    "location": "Melbourne",
     "year": "2015",
     "organisation": "Melbourne Genomics Health Alliance",
     "img": "",
@@ -688,7 +688,7 @@
     "teamLink": ""
 }, {
     "title": "Antibiotic Usage Data: Assisting clinicians to improve prescribing",
-    "city": "Perth",
+    "location": "Perth",
     "year": "2015",
     "organisation": "Department of Health",
     "img": "http://ww2.health.wa.gov.au/~/media/Images/Corporate/Logo%20Banner/logoDOH.ashx",
