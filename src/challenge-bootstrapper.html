@@ -1,11 +1,12 @@
 <link async rel="import" href="/async-js-imports.html">
 <script>
   window.stampChallenges = function(year) {
-    fetch('data/challenges.json')
+    current = (new Date).getFullYear() == year;
+    var version = current ? "current" : "archive";
+    fetch('data/challenges-'+version+'.json')
     .then( function(resp) { return resp.json() })
     .then(function(challenges) {
       current = (new Date).getFullYear() == year;
-      console.log(challenges);
       if(current) {
         document.querySelector('hh-challenges').challenges = challenges.filter(function(challenge) {
           return challenge.year == year;
