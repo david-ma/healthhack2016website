@@ -65,7 +65,7 @@
     "title": "One Disease - Proof of concept for Health Hack",
     "summary": "We proposed HealthHack to build a app to help Indigenous Australians to monitor and control their disease better. The app will provide visual cues and media\u2014using images and pictographs rather than words or numbers to complete the diagnostic algorithm.",
     "year": 2014,
-    "description": "<b>Background<\/b><br><br>Indigenous Australians live 1\u20132 decades less than their non-Indigenous counterparts. Scabies affects 7 out of 10 Indigenous children at least once before their first birthday. What presents as an innocent itch can lead to heart and kidney failure and ultimately premature death. One Disease aims to eliminate scabies, because we believe no Australian should die of a preventable disease.   Currently, prevalence rates of scabies in Indigenous communities are established through screening events, or based on clinic presentation data. In screening events, a questionnaire developed from a sales app (DoForms) is used. In this, demographic information is preloaded onto the form, data is either typed or entered numerically during the screening, and the information is downloaded to an excel spreadsheet at the completion of the screening. This process has served the team well thus far, however there are limitations with accessibility due to the high level of English literacy and numeracy required to complete the form.<br><br><b>A proposed solution<\/b><br><br>If we were able to develop an app that relied more strongly on visual cues and media\u2014using images and pictographs rather than words or numbers to complete the diagnostic algorithm\u2014it would become more accessible to the Indigenous workforce and open the app up for greater use. Increased uptake would lead to increased screening, a better informed picture of the size of the scabies problem, and ultimately a more coordinated and comprehensive response to it. A visually based app would allow community members to take part in disease control efforts\u2014effectively empowering them to crowd-source management of their own health. An open access app will also open the door for crowd-sourced surveillance of scabies if it is adopted for use by Government and Aboriginal Community Controlled Health Clinics.<br><br>The proposed app would require the following technologies:<br><br><ul><li>Data collection will take the form of a tablet-based app with GPS capability. The app will need the ability to function offline (due to connectivity restrictions in the remote areas we operate) and community demographic data (including names, dates of birth) will need to be preloaded.<\/li><li>The interface must cater for English as a second language and low technology consumers and use strong visual inputs, including the ability to draw\/finger paint onto images, image capture and storage capability, options for selecting images from a photo gallery (eg, skin sore gallery to drag and drop onto a diagram of a body)<\/li><li>Collected records require storage on a highly secure cloud device, employing encryption and security technologies. Data is initially identifiable, therefore security is critical. Access will be from multiple sites, by multiple users, and content will need to be downloaded and stored for analysis<\/li><\/ul><br><br>From a data analysis perspective:<br><br><ul><li>Patient information needs to be able to be uploaded to the form from an excel or csv file (name, DOB, address, age at screening, sex, etc)<\/li><li>Group results need to be downloaded to an excel or csv file following screening for analysis<\/li><li>Diagnostic algorithm that currently sits behind screening table needs to be preserved in visual translation<\/li><li>Conditionality needs to be built into the form- i.e. certain questions arise as a result of answers to previous questions<\/li><\/ul>",
+    "description": "<b>Background<\/b><br><br>Indigenous Australians live 1\u20132 decades less than their non-Indigenous counterparts. Scabies affects 7 out of 10 Indigenous children at least once before their first birthday. What presents as an innocent itch can lead to heart and kidney failure and ultimately premature death. One Disease aims to eliminate scabies, because we believe no Australian should die of a preventable disease.   Currently, prevalence rates of scabies in Indigenous communities are established through screening events, or based on clinic presentation data. In screening events, a questionnaire developed from a sales app (DoForms) is used. In this, demographic information is preloaded onto the form, data is either typed or entered numerically during the screening, and the information is downloaded to an excel spreadsheet at the completion of the screening. This process has served the team well thus far, however there are limitations with accessibility due to the high level of English literacy and numeracy required to complete the form.<br><br><b>A proposed solution<\/b><br><br>If we were able to develop an app that relied more strongly on visual cues and media\u2014using images and pictographs rather than words or numbers to complete the diagnostic algorithm\u2014it would become more accessible to the Indigenous workforce and open the app up for greater use. Increased uptake would lead to increased screening, a better informed picture of the size of the scabies problem, and ultimately a more coordinated and comprehensive response to it. A visually based app would allow community members to take part in disease control efforts\u2014effectively empowering them to crowd-source management of their own health. An open access app will also open the door for crowd-sourced surveillance of scabies if it is adopted for use by Government and Aboriginal Community Controlled Health Clinics.<br><br>The proposed app would require the following technologies:<br><br><ul><li>Data collection will take the form of a tablet-based app with GPS capability. The app will need the ability to function offline (due to connectivity restrictions in the remote areas we operate) and community demographic data (including titles, dates of birth) will need to be preloaded.<\/li><li>The interface must cater for English as a second language and low technology consumers and use strong visual inputs, including the ability to draw\/finger paint onto images, image capture and storage capability, options for selecting images from a photo gallery (eg, skin sore gallery to drag and drop onto a diagram of a body)<\/li><li>Collected records require storage on a highly secure cloud device, employing encryption and security technologies. Data is initially identifiable, therefore security is critical. Access will be from multiple sites, by multiple users, and content will need to be downloaded and stored for analysis<\/li><\/ul><br><br>From a data analysis perspective:<br><br><ul><li>Patient information needs to be able to be uploaded to the form from an excel or csv file (title, DOB, address, age at screening, sex, etc)<\/li><li>Group results need to be downloaded to an excel or csv file following screening for analysis<\/li><li>Diagnostic algorithm that currently sits behind screening table needs to be preserved in visual translation<\/li><li>Conditionality needs to be built into the form- i.e. certain questions arise as a result of answers to previous questions<\/li><\/ul>",
     "organisationLink": "http:\/\/1disease.org\/",
     "presenters": "Shelley Thompson",
     "location": "Sydney"
@@ -155,7 +155,7 @@
     "img": "/images/sponsors\/unconfirmed\/unimelb.jpg"
 },
 {
-    "name": "Genome Browser loader",
+    "title": "Genome Browser loader",
     "city": "Melbourne",
     "year": "2015",
     "organisation": "Bio21",
@@ -169,7 +169,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Explore your Genome and Epigenome in an Immersive Virtual Space",
+    "title": "Explore your Genome and Epigenome in an Immersive Virtual Space",
     "city": "Sydney",
     "year": "2015",
     "organisation": "Garvan Institute",
@@ -183,7 +183,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Arthritis Monitoring App",
+    "title": "Arthritis Monitoring App",
     "city": "Sydney",
     "year": "2015",
     "organisation": "Fishburners",
@@ -197,7 +197,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Automated tuning with control samples",
+    "title": "Automated tuning with control samples",
     "city": "Sydney",
     "year": "2015",
     "organisation": "Garvan Institute",
@@ -211,7 +211,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "SenseS - A sensor for stress",
+    "title": "SenseS - A sensor for stress",
     "city": "Sydney",
     "year": "2015",
     "organisation": "ThoughtWorks",
@@ -225,7 +225,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Mining tool for discovering commonalities in gene expression data of independent experiments.",
+    "title": "Mining tool for discovering commonalities in gene expression data of independent experiments.",
     "city": "Sydney",
     "year": "2015",
     "organisation": "Garvan Institute",
@@ -239,7 +239,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Best way to display fracture risk for the general public and for doctors",
+    "title": "Best way to display fracture risk for the general public and for doctors",
     "city": "Sydney",
     "year": "2015",
     "organisation": "Garvan Institute",
@@ -253,7 +253,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Feedback mechanism for young diabetes patients to promote healthy balance of activity and diet",
+    "title": "Feedback mechanism for young diabetes patients to promote healthy balance of activity and diet",
     "city": "Sydney",
     "year": "2015",
     "organisation": "ThoughtWorks \u0026 UTS",
@@ -267,7 +267,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Creating a framework to build interactive web experiences around scientific illustration \u0026 animation",
+    "title": "Creating a framework to build interactive web experiences around scientific illustration \u0026 animation",
     "city": "Sydney",
     "year": "2015",
     "organisation": "Garvan Institute",
@@ -281,7 +281,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Trees to display changing treatments",
+    "title": "Trees to display changing treatments",
     "city": "Melbourne",
     "year": "2015",
     "organisation": "Department of Epidemiology and Preventive Medicine, Monash University",
@@ -295,7 +295,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Searchable funnel plots for performance comparisons",
+    "title": "Searchable funnel plots for performance comparisons",
     "city": "Melbourne",
     "year": "2015",
     "organisation": "Department of Epidemiology and Preventive Medicine, Monash University",
@@ -303,13 +303,13 @@
     "organisationLink": "http://www.med.monash.edu.au/epidemiology/",
     "presenters": "Dr Jessica Kasza",
     "summary": "When comparing the performance of health care providers, a typical approach is to plot “performance indicators” for a group of providers on a funnel plot. I’d like a tool which constructs a funnel plot for a set of performance indicators, and provides some interactive capability, such as high-lighting the performance indicators of particular subgroups of providers.",
-    "description": "In order to maintain high standards of care, it is necessary to compare the performance of health care providers, such as intensive care units, surgeons, or dialysis centres, to determine if there are any with unusually poor (or good) performance. Performance indicators for each provider are estimated, along with some measure of the variability of these performance indicators (such as the standard error of the estimated performance indicators). Funnel plots are often used to identify those providers with unusual performance. The funnel plot is essentially a scatter plot, with the performance indicator of each provider plotted on the y-axis, against the measure of variability on the x-axis. If a provider has usual performance, its performance indicator is expected to lie close to some “null” value. Standard formulas are used to compute statistical confidence intervals around this null value, within which performance indicators corresponding to usual performance are expected to lie. These confidence intervals form “funnels” around the null value, hence the name.\nI’d like a tool that constructs a funnel plot for a given set of performance indicators and can then be explored. For example, the ability to highlight the performance indicators of specific sub-groups of providers, such as those within particular states or territories of Australia, would allow patterns within the performance of providers to be explored.\n",
+    "description": "In order to maintain high standards of care, it is necessary to compare the performance of health care providers, such as intensive care units, surgeons, or dialysis centres, to determine if there are any with unusually poor (or good) performance. Performance indicators for each provider are estimated, along with some measure of the variability of these performance indicators (such as the standard error of the estimated performance indicators). Funnel plots are often used to identify those providers with unusual performance. The funnel plot is essentially a scatter plot, with the performance indicator of each provider plotted on the y-axis, against the measure of variability on the x-axis. If a provider has usual performance, its performance indicator is expected to lie close to some “null” value. Standard formulas are used to compute statistical confidence intervals around this null value, within which performance indicators corresponding to usual performance are expected to lie. These confidence intervals form “funnels” around the null value, hence the title.\nI’d like a tool that constructs a funnel plot for a given set of performance indicators and can then be explored. For example, the ability to highlight the performance indicators of specific sub-groups of providers, such as those within particular states or territories of Australia, would allow patterns within the performance of providers to be explored.\n",
     "workingDemoLink": "",
     "winner": "",
     "team": "",
     "teamLink": ""
 }, {
-    "name": "A dashboard for building clinical laboratory networks",
+    "title": "A dashboard for building clinical laboratory networks",
     "city": "Melbourne",
     "year": "2015",
     "organisation": "Human Variome Project",
@@ -323,7 +323,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "connectED:  Creating opportunities to teach and learn in the health care setting",
+    "title": "connectED:  Creating opportunities to teach and learn in the health care setting",
     "city": "Melbourne",
     "year": "2015",
     "organisation": "Eastern Health Clinical School ",
@@ -337,7 +337,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Serious games teaching emotion recognition for Autism Spectrum Disorders, with biofeedback and Unity game engine",
+    "title": "Serious games teaching emotion recognition for Autism Spectrum Disorders, with biofeedback and Unity game engine",
     "city": "Perth",
     "year": "2015",
     "organisation": "Curtin University",
@@ -351,7 +351,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Visualization of sequential study design properties – saving lives and costs in first-in-human clinical trials.",
+    "title": "Visualization of sequential study design properties – saving lives and costs in first-in-human clinical trials.",
     "city": "Melbourne",
     "year": "2015",
     "organisation": "Murdoch Childrens Research Institute",
@@ -365,7 +365,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Scan your skin to manage your sun exposure",
+    "title": "Scan your skin to manage your sun exposure",
     "city": "Perth",
     "year": "2015",
     "organisation": "Telethon Kids Institute",
@@ -379,7 +379,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Navigating the home-care service ecosystem",
+    "title": "Navigating the home-care service ecosystem",
     "city": "Perth",
     "year": "2015",
     "organisation": "Sliverchain",
@@ -393,7 +393,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Improving diagnosis to better manage antimicrobial resistance",
+    "title": "Improving diagnosis to better manage antimicrobial resistance",
     "city": "Perth",
     "year": "2015",
     "organisation": "PathWest, Department of Health WA",
@@ -407,7 +407,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Visualising the complex home-care services ecosystem",
+    "title": "Visualising the complex home-care services ecosystem",
     "city": "Perth",
     "year": "2015",
     "organisation": "Sliverchain",
@@ -421,7 +421,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Exploring hospitalisation data",
+    "title": "Exploring hospitalisation data",
     "city": "Perth",
     "year": "2015",
     "organisation": "Telethon Kids Institute",
@@ -435,7 +435,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Clinical exam rotation rosters",
+    "title": "Clinical exam rotation rosters",
     "city": "Melbourne",
     "year": "2015",
     "organisation": "Royal Australian College of General Practitioners",
@@ -449,7 +449,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Identify and visualise the cost of treating cancer",
+    "title": "Identify and visualise the cost of treating cancer",
     "city": "Brisbane",
     "year": "2015",
     "organisation": "Central Integrated Regional Cancer Service",
@@ -463,7 +463,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Allergy and consumption related monitoring",
+    "title": "Allergy and consumption related monitoring",
     "city": "Brisbane",
     "year": "2015",
     "organisation": "Dr Fabien Plisson",
@@ -471,13 +471,13 @@
     "organisationLink": "http://fabienplisson.com/",
     "presenters": "Dr Fabien Plisson",
     "summary": "Monitoring personal consumption of food, drinks and other consumer goods for allergies and consumption-related diseases",
-    "description": "Most of the food, drink or cosmetic product we consume, named as fast-moving consumer goods, are rigorously controlled and each marketed product can be traced via unique barcodes. Using portable scanning technology such as a mobile app, we digitalize our daily consumption similarly to MyFitnessPal. \n\nMonitoring our personalised consumption can help diagnose and prevent health issues such as allergies that can not be identified by traditional methods. Coupled to a web or platform-based diary relating symptoms (e.g. ache, rash, inflammation), the long-term monitoring would enable to identify (via pattern recognition) the ingredient(s) associated to your symptoms. Such technology could also prevent associated risks to cardiovascular diseases, obesity or diabetes.",
+    "description": "Most of the food, drink or cosmetic product we consume, titled as fast-moving consumer goods, are rigorously controlled and each marketed product can be traced via unique barcodes. Using portable scanning technology such as a mobile app, we digitalize our daily consumption similarly to MyFitnessPal. \n\nMonitoring our personalised consumption can help diagnose and prevent health issues such as allergies that can not be identified by traditional methods. Coupled to a web or platform-based diary relating symptoms (e.g. ache, rash, inflammation), the long-term monitoring would enable to identify (via pattern recognition) the ingredient(s) associated to your symptoms. Such technology could also prevent associated risks to cardiovascular diseases, obesity or diabetes.",
     "workingDemoLink": "",
     "winner": "",
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Cloud Computing Carpentry (CCC)",
+    "title": "Cloud Computing Carpentry (CCC)",
     "city": "Brisbane",
     "year": "2015",
     "organisation": "Software Carpentry QLD",
@@ -491,7 +491,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Real-time pain management tool",
+    "title": "Real-time pain management tool",
     "city": "Brisbane",
     "year": "2015",
     "organisation": "Institute for Molecular Bioscience",
@@ -505,7 +505,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Clever multi-view graphs",
+    "title": "Clever multi-view graphs",
     "city": "Brisbane",
     "year": "2015",
     "organisation": "Stemformatics, Australian Institute for Bioengineering and Nanotechnology",
@@ -519,7 +519,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "YuGene Graph",
+    "title": "YuGene Graph",
     "city": "Brisbane",
     "year": "2015",
     "organisation": "Stemformatics, Australian Institute for Bioengineering and Nanotechnology",
@@ -533,7 +533,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Molecular Dynamics Database (MDDB)",
+    "title": "Molecular Dynamics Database (MDDB)",
     "city": "Brisbane",
     "year": "2015",
     "organisation": "UQ MD Group, School of Chemistry \u0026 Molecular Biosciences",
@@ -547,7 +547,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "3D annotation of Terrascale biomedical imaging data in a 2D web",
+    "title": "3D annotation of Terrascale biomedical imaging data in a 2D web",
     "city": "",
     "year": "",
     "organisation": "National Imaging Facility",
@@ -561,7 +561,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Predicting falls from monitoring data",
+    "title": "Predicting falls from monitoring data",
     "city": "Brisbane",
     "year": "2015",
     "organisation": "LifeLink",
@@ -575,7 +575,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "ThoughtWorks challenge",
+    "title": "ThoughtWorks challenge",
     "city": "Brisbane",
     "year": "2015",
     "organisation": "ThoughtWorks, Brisbane",
@@ -589,7 +589,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Unsteadiness Detector",
+    "title": "Unsteadiness Detector",
     "city": "Perth",
     "year": "2015",
     "organisation": "Internet of Everything Community",
@@ -603,7 +603,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Visualising risky teen drinking",
+    "title": "Visualising risky teen drinking",
     "city": "Perth",
     "year": "2015",
     "organisation": "Curtin University",
@@ -617,7 +617,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Wheelchair controller",
+    "title": "Wheelchair controller",
     "city": "Perth",
     "year": "2015",
     "organisation": "Curtin University, Rocky Bay",
@@ -631,7 +631,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Mapping social relationships, alcohol and drug use and other risky behaviours.",
+    "title": "Mapping social relationships, alcohol and drug use and other risky behaviours.",
     "city": "Melbourne",
     "year": "2015",
     "organisation": "Turning Point",
@@ -645,7 +645,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "A Simple Online Clinical Notes Program",
+    "title": "A Simple Online Clinical Notes Program",
     "city": "Melbourne",
     "year": "2015",
     "organisation": "Chiasma Health",
@@ -659,7 +659,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "3D annotation of Terrascale biomedical imaging data in a 2D web",
+    "title": "3D annotation of Terrascale biomedical imaging data in a 2D web",
     "city": "",
     "year": "",
     "organisation": "National Imaging Facility",
@@ -673,7 +673,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "An Integrated Quality control system (IQ system)",
+    "title": "An Integrated Quality control system (IQ system)",
     "city": "Melbourne",
     "year": "2015",
     "organisation": "Melbourne Genomics Health Alliance",
@@ -687,7 +687,7 @@
     "team": "",
     "teamLink": ""
 }, {
-    "name": "Antibiotic Usage Data: Assisting clinicians to improve prescribing",
+    "title": "Antibiotic Usage Data: Assisting clinicians to improve prescribing",
     "city": "Perth",
     "year": "2015",
     "organisation": "Department of Health",
