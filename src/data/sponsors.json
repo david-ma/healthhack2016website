@@ -1,7 +1,4 @@
 [{
-  "logo": "/images/HH_Logo.svg",
-  "text": "lorem ipsum"
-}, {
     "image": "data61.png",
     "text": "lorem ipsum",
     "href": "",
