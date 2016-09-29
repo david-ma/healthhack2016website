@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-echo pulling updated challenges from sheetsu
-curl https://sheetsu.com/apis/v1.0/8f11913607ba -o src/data/challenges-current.json
-echo pulling sponsors from sheets api
-GET https://sheets.googleapis.com/v4/spreadsheets/$SPONSORS_SHEET_ID/values/Sheet1?key=$GAPI_KEY >> src/data/sponsors.json
