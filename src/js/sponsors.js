@@ -38,6 +38,7 @@ fetch('/sponsors')
   console.log(sponsors);
   sponsors.forEach(function(sponsor) {
     var sponsorInst = $.clone(sponsorTemplate);
+    sponsorInst.querySelector('a').href = sponsor.link;
     sponsorInst.querySelector('img').src= sponsor.logo;
     sponsorsDiv.appendChild(sponsorInst);
   });
