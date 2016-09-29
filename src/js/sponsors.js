@@ -24,13 +24,14 @@ function enumerateLevel(level) {
 fetch('/sponsors')
 .then(function(resp) { return resp.json()})
 .then(function(sponsors) {
-  return sponsors.sort(function(a,b) {
-    return b.priority - a.priority;
-  })
-})
-.then(function(sponsors) {
   return sponsors.filter(function(sponsor) {
     return sponsor.text != "deleted";
+  })
+
+})
+.then(function(sponsors) {
+  return sponsors.sort(function(a,b) {
+    return b.priority - a.priority;
   })
 })
 .then(function(sponsors) {
