@@ -23,12 +23,11 @@
 		color:white;
 		border-color:#08b3a6;
 	}
-	.sponsors > img {
-		max-width:250px;
-		max-height:200px;
+	.sponsors > div > div > div > div > img {
+		max-width:180px;
+		max-height:180px;
 		width:auto;
 		height:auto;
-		padding-bottom:10px;
 	}
 </style>
 </head>
@@ -150,14 +149,15 @@
 		</section>
 
 		<div style="display:none">
-			<div id="sponsor-template">
+			<div id="sponsor-template" style="width:200px;height:200px;margin:10px;display:flex;align-items:center;justify-content:center">
 				<img src="" alt=""/>
 			</div>
 		</div>
 		<section id="sponsors" class="sponsors">
 			<div class="container">
-				<div class="row">
-					<div class="col-lg-offset-1 col-md-10">
+				<div class="row" style="display:flex;flex-direction:column">
+					<h2 style="margin:auto">Sponsors</h2>
+					<div class="col-lg-offset-1 col-md-10" style="display:flex;flex-direction:row;flex-wrap:wrap">
 
 					</div>
 				</div>
