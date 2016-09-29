@@ -29,6 +29,11 @@ fetch('/sponsors')
   })
 })
 .then(function(sponsors) {
+  return sponsors.filter(function(sponsor) {
+    return sponsor.text != "deleted";
+  })
+})
+.then(function(sponsors) {
   console.log(sponsors);
   sponsors.forEach(function(sponsor) {
     var sponsorInst = $.clone(sponsorTemplate);
