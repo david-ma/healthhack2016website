@@ -25,7 +25,7 @@ fetch('/sponsors')
 .then(function(resp) { return resp.json()})
 .then(function(sponsors) {
   return sponsors.sort(function(a,b) {
-    return a.priority - b.priority;
+    return b.priority - a.priority;
   })
 })
 .then(function(sponsors) {
