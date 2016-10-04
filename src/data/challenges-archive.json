@@ -547,20 +547,6 @@
     "team": "",
     "teamLink": ""
 }, {
-    "title": "3D annotation of Terrascale biomedical imaging data in a 2D web",
-    "location": "",
-    "year": "",
-    "organisation": "National Imaging Facility",
-    "img": "",
-    "organisationLink": "http://www.cai.uq.edu.au/",
-    "presenters": "Andrew Janke",
-    "summary": "Web based visualisation and annotation of 3D imaging data is difficult, the TissueStack project (www.tissuestack.org) is an open source attempt at this via HTML5 canvas elements akin to 2D mapping websites. We now want to delve into annotation of datasets and need to develop new methods of annotation beyond dropped pins and 2D polygons.",
-    "description": "Neuroimaging datasets are large, too large for desktop computers, the answer is the web. We can currently view multi GB and TB imaging datasets via a HTML5 + JavaScript interface based around tiling in a Canvas Element \u003ca href=\"http://www.tissuestack.org\"\u003e(www.tissuestack.org)\u003c/a\u003e. A detailed overview of the interface and how it works can be seen \u003ca href=\"https://www.youtube.com/watch?v=qQ4IUrx0jrA\"\u003ehere.\u003c/a\u003e  Full description of the challenge can be found on our \u003ca href=\"https://github.com/NIF-au/TissueStack/wiki/HealthHack-2015-Challenge\"\u003eGitHub repository.\u003c/a\u003e\n\u003cbr\u003e\n\u003cb\u003eChallenge\u003c/b\u003e\nOur (international) users have now become very familiar with this style of interface but want more. The #1 request we have is for annotation. Even the ability to add simple elements on top of the image would be a great outcome. Landmarks, simple polygonal lines and text.\n\u003cbr\u003e\nHow this data is stored is a vexed question, currently all data on a TissueStack server is open, so the tracings and annotations would also be open. For now everything being open is a reasonable approach.\nThought needs to be given as to how tracings and annotations work beyond a 2D plane as is more typical in traditional web interfaces. A common approach it to treat a point as a sphere and show smaller circles in adjacent slices. Failing that a user will only be able to find annotations by chance when scrolling through the volume. User cues should feature heavily here but the mechanism for doing this requires a group of coders with some novel visual design ideas for web interfaces.\n\u003cbr\u003e\n\u003cb\u003eStretch Goal\u003c/b\u003e\nCollaborative annotation across multiple instances of TissueStack. We have diverse groups of researchers working from multiple sites in Australia (and internationally). Ideally each volume should be traced by the combined knowledge and skill of multiple experts. Being able to collaboratively annotate images would be a fantastic boon to science ala google docs and other collaborative tools.",
-    "workingDemoLink": "",
-    "winner": "",
-    "team": "",
-    "teamLink": ""
-}, {
     "title": "Predicting falls from monitoring data",
     "location": "Brisbane",
     "year": "2015",
