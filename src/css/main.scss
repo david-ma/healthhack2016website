@@ -110,6 +110,27 @@ header {
 		}
 	}
 
+	.small-link-button, .small-link-button:visited {
+		color: white;
+		background-color: #08b3a6;
+		border-color: #08b3a6;
+		font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		text-transform: uppercase;
+		font-weight: 700;
+		border-radius: 3px;
+		font-size: 14px;
+		padding: 10px 20px;
+		margin: 5px;
+		&:hover {
+			color: white;
+			background-color: #07988d;
+			border-color: #07988d;
+		}
+		&:active {
+			outline: none;
+		}
+	}
+
 	.large-link-button, .large-link-button:visited {
 		color: white;
 		background-color: #08b3a6;
