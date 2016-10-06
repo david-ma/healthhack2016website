@@ -213,6 +213,10 @@
 
 	if(site_links.hasOwnProperty(site)) {
 		d3.select("#venue_logo_link").attr("href", site_links[site]);
+
+		if(site === 'sydney') {
+			d3.select("#venue_logo_link").remove();
+		}
 	}
 
 	$.get('/site/'+site, function(d){

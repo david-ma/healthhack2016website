@@ -189,7 +189,7 @@ exports.config = {
 			}
 		},
 		"sponsors": function(res, req, db, type){
-			if(sites.hasOwnProperty(type.toLowerCase())) {
+			if(type && sites.hasOwnProperty(type.toLowerCase())) {
 				// var query = "select * from `healthhack_sponsors` where site = 'national' or site = '"+type+"';";
 				var query = "select max.id, max.name, logo, link, text, site, priority, auth from (select MAX(id) as id, name from `healthhack_sponsors` where site='national' or site='"+type+"' group by name) as max, `healthhack_sponsors` where `healthhack_sponsors`.id = max.id;";
 				db.query(query, function(error, results){

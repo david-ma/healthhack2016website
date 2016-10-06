@@ -368,8 +368,8 @@ footer {
 	padding-top: 20px;
 
 	.sidebar {
-		border-left: dotted 2px rgba(0,0,255,0.5);
-		text-align: center;
+		border-left: solid lightgrey 2px;
+		text-align: left;
 	}
 	.sidebar #address {
 		text-align: left;
@@ -387,10 +387,10 @@ footer {
 		width: auto;
 	}
 	#site_photo {
-		float: right;
+		float: left;
 		max-width: 300px;
 		max-height: 300px;
-		margin-left: 20px;
+		margin-right: 20px;
 	}
 	#map {
 		width: 100%;
