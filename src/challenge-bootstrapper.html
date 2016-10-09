@@ -3,7 +3,12 @@
   window.stampChallenges = function(year) {
     current = (new Date).getFullYear() == year;
     var version = current ? "current" : "archive";
-    fetch('data/challenges-'+version+'.json')
+    if(current) {
+      fetchstring = 'https://sheetsu.com/apis/v1.0/8f11913607ba';
+    } else {
+      fetchstring = 'data/challenges-archive.json';
+    }
+    fetch(fetchstring)
     .then( function(resp) { return resp.json() })
     .then(function(challenges) {
       current = (new Date).getFullYear() == year;
