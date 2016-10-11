@@ -34,7 +34,8 @@ function refreshChallenges(){
 exports.config = {
 	domains: ["healthhack.david-ma.net", "healthhack.com.au", "www.healthhack.com.au", "test.healthhack.com.au", "2016.healthhack.com.au"],
 	pages: {
-		"challenges": "/challenges.html",
+		"challenges.html": "/challenge.html",
+		"challenges": "/challenge.html",
 		"previouschallenges": "/previouschallenges.html",
 		"melbourne": "/site.html",
 		"sydney": "/site.html",
