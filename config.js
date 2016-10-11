@@ -2,6 +2,7 @@ const fs = require('fs');
 const formidable = require('formidable');
 const path = require('path');
 const util = require('util');
+const request = require('request');
 
 const password = "password";
 
@@ -11,6 +12,23 @@ var sites = {
 	"canberra": true,
 	"brisbane": true,
 	"perth": true
+};
+
+var challenges = {};
+var time = 0;
+function refreshChallenges(){
+	if(time < Date.now() - 900000){
+		console.log("JSON was refreshed more than 15 mins ago. Refresh it now.");
+		time = Date.now();
+		request.get(
+			'https://sheetsu.com/apis/v1.0/533772eb0bba',
+			function(err, response, body) {
+				challenges = JSON.parse(body);
+			}
+		);
+	} else {
+		console.log("JSON was refreshed less than 15 mins ago. Don't refresh.");
+	}
 };
 
 exports.config = {
@@ -205,6 +223,11 @@ exports.config = {
 				res.writeHead(500);
 				res.end("Error");
 			}
+		},
+		"challengesjson": function(res){
+			res.writeHead(200);
+			res.end(JSON.stringify(challenges));
+			refreshChallenges();
 		}
 	},
 	sockets: {
