@@ -60,6 +60,11 @@
 <div class="container page">
 
 	<div class="row">
+		<h1 style="text-align:center;"><a id="cityChallengeLink">View challenges from this city</a></h1>
+		<h1 style="text-align:center;"><a id="cityRegistrationLink">Register a free ticket for this city</a></h1>
+	</div>
+
+	<div class="row">
 		<div class="col-sm-6 col-md-8">
 
 			<div id="venue_sponsor" class="row col-xs-12">
@@ -203,6 +208,14 @@
 	var site = window.location.pathname.slice(1).toLowerCase();
 	var data = null;
 
+	var site_eventbrite = {
+		sydney: 'https://www.eventbrite.com.au/e/healthhack-2016-sydney-tickets-28210995848',
+		melbourne: 'https://www.eventbrite.com.au/e/healthhack-2016-melbourne-tickets-28211042989',
+		perth: 'https://www.eventbrite.com.au/e/healthhack-2016-perth-tickets-28211083109',
+		brisbane: 'https://www.eventbrite.com.au/e/healthhack-2016-brisbane-tickets-28210567567',
+		canberra: 'https://www.eventbrite.com.au/e/healthhack-2016-canberra-tickets-28211060040'
+	};
+
 	var site_links = {
 		sydney: 'http://www.garvan.org.au/',
 		melbourne: 'https://www.thoughtworks.com/',
@@ -213,6 +226,10 @@
 
 	if(site_links.hasOwnProperty(site)) {
 		d3.select("#venue_logo_link").attr("href", site_links[site]);
+		d3.select("#cityRegistrationLink").attr("href", site_eventbrite[site]);
+
+		d3.select("#cityChallengeLink").attr("href", "/challenges#"+site);
+
 
 		if(site === 'sydney') {
 			d3.select("#venue_logo_link").remove();
