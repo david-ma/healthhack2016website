@@ -9,12 +9,10 @@
 
 	<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="/css/main.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.1/es6-shim.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.22/webcomponents-lite.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/1.0.0/fetch.min.js"></script>
 	<link rel="import" href="challenge-template.html">
-	<link rel="import" href="challenge-bootstrapper.html">
 	<link rel="import" href="hh-challenges.html">
+	<script src="/js/vendor.min.js"></script>
+	<script src="/js/scripts.min.js"></script>
 </head>
 <body id="page-top">
 	<nav id="nav">
@@ -153,7 +151,9 @@
 		</div>
 	</footer>
 
-
+<script>
+	stampChallenges(2016);
+</script>
 	<!-- Collapsable section stuff: -->
 <script>
 	$(".collapsable").each(function(i, d){
@@ -184,10 +184,5 @@
 	ga('create', 'UA-82263021-1', 'auto');
 	ga('send', 'pageview');
 </script>
-<script>
-	stampChallenges(2016);
-</script>
-<script src="/js/vendor.min.js"></script>
-<script src="/js/scripts.min.js"></script>
 </body>
 </html>
