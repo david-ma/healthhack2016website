@@ -11,10 +11,16 @@
 	<link rel="stylesheet" href="/css/main.css">
 
 	<style>
+		.friend-block > a {
+			color:black;
+		}
+		.friend-block {
+			height:420px;
+		}
 	</style>
 </head>
 <body id="page-top" class="site site-page">
-<nav id="nav">	
+<nav id="nav">
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-2">
@@ -98,7 +104,7 @@
 		<div id="sponsors" class="col-xs-12">
 			<h1>Sponsors</h1>
 			<div id="list-of-friends">
-				<div class="friend-block fb-box" id="be-our-friend">
+				<div class="friend-block fb-box" style="min-height:350px;max-height:400px;" id="be-our-friend">
 					<img class="friend-logo" src="/images/sponsors/your_logo_here.png">
 					<h2>Sponsor us!</h2>
 					<p>Sponsoring HealthHack is a great way to give back to the community, money goes to feeding hackers on the day.</p>
@@ -207,6 +213,10 @@
 
 	if(site_links.hasOwnProperty(site)) {
 		d3.select("#venue_logo_link").attr("href", site_links[site]);
+
+		if(site === 'sydney') {
+			d3.select("#venue_logo_link").remove();
+		}
 	}
 
 	$.get('/site/'+site, function(d){
@@ -288,11 +298,14 @@
 
 			sponsors.forEach(function(sponsor){
 				if(sponsor.auth && sponsor.text !== "deleted") {
-					var block = box.append('a').attr({
-						href: sponsor.link
-					}).append("div").attr({
-						class: "friend-block fb-box"
-					}).datum(sponsor);
+					var block = box.append("div").attr({
+						class: "friend-block fb-box"}).append("a").attr({
+							href: sponsor.link}).datum(sponsor)
+					// var block = box.append('a').attr({
+					// 	href: sponsor.link
+					// }).append("div").attr({
+					// 	class: "friend-block fb-box"
+					// }).datum(sponsor);
 
 					block.append("img").attr({
 						src: sponsor.logo
