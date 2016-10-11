@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>HealthHack Australia</title>
+
+	<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="/css/main.css">
+
+	<style>
+		.friend-block > a {
+			color:black;
+		}
+		.friend-block {
+			height:420px;
+		}
+	</style>
+</head>
+<body id="page-top" class="site site-page">
+<nav id="nav">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-2">
+				<a href="/"><img src="/images/HH_Logo.svg" class="navlogo" id="hh_logo" alt="HealthHack"></a>
+			</div>
+			<div class="col-xs-10 nav-right">
+				<ul id="navlist">
+					<li><a class="page-scroll" href="/#mission">Mission</a></li>
+					<li><a class="page-scroll" href="http://blog.healthhack.com.au">Blog</a></li>
+					<li><a class="page-scroll" href="/#sites">Sites</a></li>
+					<li><a class="page-scroll" href="/faq.html">FAQ</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+
+<header>
+	<div class="blur_background">
+		<div class="mask"></div>
+	</div>
+	<div class="container" id="header_message">
+		<div class="row">
+			<div class="col-xs-12">
+				<h1>Challenges</h1>
+			</div>
+		</div>
+	</div>
+</header>
+
+<div class="container page">
+	<div id="challenges"></div>
+</div>
+
+
+
+
+
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 text-center">
+				<div>HealthHack is an <a href="http://au.okfn.org/code-of-conduct/" target="_blank">
+					<img alt="Open Knowledge Foundation Australia" class="footer-okfna" src="/images/okfna.png" style="height: 30px">
+				</a>
+					<a href="http://au.okfn.org/code-of-conduct/" target="_blank">Open Knowledge Foundation Australia event </a>
+				</div>
+			</div>
+			<div class="col-sm-6 text-center">
+				<ul class="list-inline quicklinks">
+					<li>
+						<a href="https://github.com/david-ma/Thalia">Website Theme</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+<script src="/js/vendor.min.js"></script>
+
+<script>var div=d3.select("#challenges");$.ajax("/challengesjson",{success:function(e){var a=JSON.parse(e);console.log(a),a.forEach(function(e,a){var t=div.append("div").attr({id:"c"+a,"class":"challengeblock row"});t.append("h1").text(e.title);var n=t.append("div").classed("col-xs-8",!0),s=t.append("div").classed("left-block",!0).classed("col-xs-4",!0);n.append("p").html(e.description),s.append("img").attr({"class":"challengeLogo",src:"/images/sponsors/"+e.image}),s.append("h4").text("Organisation: ").append("a").attr({href:e.organisationLink}).text(e.organisation),s.append("h4").text("Location: "+e.location),s.append("h4").text("Problem Owner: "+e.presenters),s.append("a").text("Permalink to this problem").attr({href:"#c"+a})})}})</script>
+
+
+
+
+
+<!-- Google Analytics-->
+<script>!function(e,t,a,n,c,o,s){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,o=t.createElement(a),s=t.getElementsByTagName(a)[0],o.async=1,o.src=n,s.parentNode.insertBefore(o,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-82263021-1","auto"),ga("send","pageview")</script>
+
+</body>
+</html>

@@ -523,3 +523,45 @@ footer {
 		height:auto;
 	}
 }
+
+.challengeblock {
+	h1 {
+		text-align: center;
+	}
+	padding: 10px;
+	margin: 10px;
+
+	&:nth-child(odd) {
+		background: rgba(0,0,0,0.1);
+	}
+	.challengeLogo {
+		width: 200px;
+		background: white;
+	}
+	.left-block {
+		padding: 10px;
+		background: white;
+		border: solid 1px black;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
