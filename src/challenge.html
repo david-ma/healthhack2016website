@@ -85,21 +85,37 @@
 
 <script>
 	var hash = window.location.hash || false;
-	var number = false;
 	var div = d3.select("#challenges");
 	$.ajax("/challengesjson", {success: function(data){
 		var challenges = JSON.parse(data);
-		console.log(challenges);
+		challenges.forEach(function(d, i){
+			d.id = i;
+		});
 		if(hash) {
-			number = hash.split("#c")[1];
-			challenges = [challenges[number]];
-		}
-		challenges.forEach(function(challenge, i){
-			if(number){
-				i = number;
+			hash = hash.toLowerCase();
+			if (hash === "#canberra" ||
+				hash === "#sydney" ||
+				hash === "#perth" ||
+				hash === "#melbourne" ||
+				hash === "#brisbane"
+			) {
+				console.log("We have a city!");
+				var city = hash.split("#")[1];
+				var temp = [];
+				challenges.forEach(function(d){
+					if(d.location && d.location.toLowerCase() === city) {
+						temp.push(d);
+					}
+				});
+				challenges = temp;
+			} else if( hash.indexOf("#c") == 0){
+				var number = hash.split("#c")[1];
+				challenges = [challenges[number]];
 			}
+		}
+		challenges.forEach(function(challenge){
 			var block = div.append("div").attr({
-				id: "c"+i,
+				id: "c"+challenge.id,
 				class: "challengeblock row"
 			});
 
@@ -126,7 +142,7 @@
 			mobile.append("h4").text("Location: "+challenge.location);
 			mobile.append("h4").text("Problem Owner: "+challenge.presenters);
 			mobile.append("a").text("Permalink to this problem").attr({
-				href: "#c"+i
+				href: "#c"+challenge.id
 			});
 
 			right.append("img").attr({
@@ -139,7 +155,7 @@
 			right.append("h4").text("Location: "+challenge.location);
 			right.append("h4").text("Problem Owner: "+challenge.presenters);
 			right.append("a").text("Permalink to this problem").attr({
-				href: "#c"+i
+				href: "#c"+challenge.id
 			});
 		});
 	}})
