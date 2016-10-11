@@ -83,7 +83,7 @@
 
 <script src="/js/vendor.min.js"></script>
 
-<script>var div=d3.select("#challenges");$.ajax("/challengesjson",{success:function(e){var a=JSON.parse(e);console.log(a),a.forEach(function(e,a){var t=div.append("div").attr({id:"c"+a,"class":"challengeblock row"});t.append("h1").text(e.title);var n=t.append("div").classed("col-xs-8",!0),s=t.append("div").classed("left-block",!0).classed("col-xs-4",!0);n.append("p").html(e.description),s.append("img").attr({"class":"challengeLogo",src:"/images/sponsors/"+e.image}),s.append("h4").text("Organisation: ").append("a").attr({href:e.organisationLink}).text(e.organisation),s.append("h4").text("Location: "+e.location),s.append("h4").text("Problem Owner: "+e.presenters),s.append("a").text("Permalink to this problem").attr({href:"#c"+a})})}})</script>
+<script>var hash=window.location.hash||!1;console.log(hash);var div=d3.select("#challenges");$.ajax("/challengesjson",{success:function(a){var e=JSON.parse(a);if(console.log(e),hash){var s=hash.split("#c")[1];e=[e[s]]}e.forEach(function(a,e){var s=div.append("div").attr({id:"c"+e,"class":"challengeblock row"});s.append("h1").text(a.title);var n=s.append("div").classed("col-xs-8",!0),t=s.append("div").classed("left-block",!0).classed("col-xs-4",!0);n.append("p").html(a.description),t.append("img").attr({"class":"challengeLogo",src:"/images/sponsors/"+a.image}),t.append("h4").text("Organisation: ").append("a").attr({href:a.organisationLink}).text(a.organisation),t.append("h4").text("Location: "+a.location),t.append("h4").text("Problem Owner: "+a.presenters),t.append("a").text("Permalink to this problem").attr({href:"#c"+e})})}})</script>
 
 
 

@@ -84,12 +84,15 @@
 <script src="/js/vendor.min.js"></script>
 
 <script>
-
+	var hash = window.location.hash || false;
 	var div = d3.select("#challenges");
-
 	$.ajax("/challengesjson", {success: function(data){
 		var challenges = JSON.parse(data);
 		console.log(challenges);
+		if(hash) {
+			var number = hash.split("#c")[1];
+			challenges = [challenges[number]];
+		}
 		challenges.forEach(function(challenge, i){
 			var block = div.append("div").attr({
 				id: "c"+i,
