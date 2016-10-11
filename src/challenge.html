@@ -104,25 +104,38 @@
 			});
 
 			block.append("h1").text(challenge.title);
-
-			var left = block.append("div").classed("col-xs-8", true);
+			var mobile = block.append("div")
+					.classed("mobile-block", true)
+					.classed("visible-xs", true);
+			var left = block.append("div").classed("col-sm-8", true);
 			var right = block.append("div")
 					.classed("left-block", true)
-					.classed("col-xs-4", true);
+					.classed("col-sm-4", true)
+					.classed("hidden-xs", true);
 
 			left.append("p").html(challenge.description);
+
+
+			mobile.append("img").attr({
+				class: "challengeLogo",
+				src: "/images/sponsors/"+challenge.image
+			});
+			mobile.append("h4").text("Organisation: ").append("a").attr({
+				href: challenge.organisationLink
+			}).text(challenge.organisation);
+			mobile.append("h4").text("Location: "+challenge.location);
+			mobile.append("h4").text("Problem Owner: "+challenge.presenters);
+			mobile.append("a").text("Permalink to this problem").attr({
+				href: "#c"+i
+			});
 
 			right.append("img").attr({
 				class: "challengeLogo",
 				src: "/images/sponsors/"+challenge.image
 			});
-
 			right.append("h4").text("Organisation: ").append("a").attr({
 				href: challenge.organisationLink
 			}).text(challenge.organisation);
-
-
-
 			right.append("h4").text("Location: "+challenge.location);
 			right.append("h4").text("Problem Owner: "+challenge.presenters);
 			right.append("a").text("Permalink to this problem").attr({
