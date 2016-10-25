@@ -268,6 +268,8 @@ exports.config = {
 		}]
 	},
 	proxies: {
-	  "slack.healthhack.com.au": 3001
+	  "slack.healthhack.com.au": {
+		  "port": 3001
+	  }
 	}
 };
